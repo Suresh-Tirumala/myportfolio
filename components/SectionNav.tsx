@@ -1,28 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useLanguage } from "@/components/LanguageProvider";
 
-// Vertical dots fixed to the right edge that highlight the current section
-// using the same `data-kb-section` markers the 3D scene already observes.
-// Click a dot → smooth scroll (Lenis is wrapping the document, so a regular
-// scrollIntoView gets intercepted and animated by Lenis). Hidden on small
-// screens to avoid crowding the keyboard.
 export default function SectionNav() {
   const [active, setActive] = useState<string>("hero");
-  const { t } = useLanguage();
 
   const SECTIONS = [
-    { id: "hero", label: t("nav.home") },
-    { id: "about", label: t("nav.about") },
-    { id: "stack", label: t("nav.stack") },
-    { id: "experience", label: t("nav.experience") },
-    { id: "project1", label: `${t("nav.project")} 01` },
-    { id: "project2", label: `${t("nav.project")} 02` },
-    { id: "project3", label: `${t("nav.project")} 03` },
-    { id: "project4", label: `${t("nav.project")} 04` },
-    { id: "project5", label: `${t("nav.project")} 05` },
-    { id: "contact", label: t("nav.contact") },
+    { id: "hero", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "stack", label: "Stack" },
+    { id: "experience", label: "Experience" },
+    { id: "project1", label: "Project 01" },
+    { id: "project2", label: "Project 02" },
+    { id: "project3", label: "Project 03" },
+    { id: "project4", label: "Project 04" },
+    { id: "project5", label: "Project 05" },
+    { id: "contact", label: "Contact" },
   ];
 
   useEffect(() => {
@@ -67,7 +60,7 @@ export default function SectionNav() {
 
   return (
     <nav
-      aria-label={t("nav.aria")}
+      aria-label="Sections"
       className="hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col gap-3 pointer-events-auto"
     >
       {SECTIONS.map((s) => {

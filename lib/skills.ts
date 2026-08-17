@@ -34,3 +34,21 @@ export const SKILLS_GRID: readonly (readonly SkillIcon[])[] = [
 ] as const;
 
 export const SKILLS_FLAT: readonly SkillIcon[] = SKILLS_GRID.flat();
+
+export const TAGLINES: Record<string, string> = {
+  javascript: "Where it all started. Still here, still in charge.",
+  typescript: "Same JS, with a seatbelt.",
+  html5: "The bones of any page.",
+  css: "What separates good from beautiful.",
+  tailwindcss: "Utility-first. Design inside the HTML.",
+  python: "Reads like English, scales like a rocket.",
+  react: "Components, components, components.",
+  nextdotjs: "React all grown up: routing, SSR, edge.",
+  vuedotjs: "The most relaxed frontend.",
+  nodedotjs: "JavaScript on the server.",
+  php: "Runs more of the web than you think.",
+  odoo: "ERP that doesn't make you cry.",
+  postgresql: "The boring database that always works.",
+  docker: "Same on my machine, same in production.",
+  git: "History and a time machine for your code.",
+};

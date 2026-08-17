@@ -8,9 +8,6 @@ import MagneticTargets from "@/components/MagneticTargets";
 import SeasonProvider, {
   SEASON_BOOT_SCRIPT,
 } from "@/components/SeasonProvider";
-import LanguageProvider, {
-  LANG_BOOT_SCRIPT,
-} from "@/components/LanguageProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,20 +22,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Suresh Mahima Kumar Tirumala — Full Stack Developer",
   description:
-    "Portfolio de Suresh Mahima Kumar Tirumala — Full Stack Developer. Experiencias web inmersivas con Next.js y React Three Fiber.",
+    "Portfolio of Suresh Mahima Kumar Tirumala — Full Stack Developer. Immersive web experiences with Next.js and React Three Fiber.",
   authors: [{ name: "Suresh Mahima Kumar Tirumala" }],
   openGraph: {
     title: "Suresh Mahima Kumar Tirumala — Full Stack Developer",
     description:
-      "Portfolio inmersivo con escena 3D interactiva. Next.js, React Three Fiber, GLSL.",
+      "Immersive portfolio with interactive 3D scene. Next.js, React Three Fiber, GLSL.",
     type: "website",
-    locale: "es_ES", // could be changed to en_US depending on the app's primary target
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Suresh Mahima Kumar Tirumala — Full Stack Developer",
     description:
-      "Portfolio inmersivo con escena 3D interactiva. Next.js, React Three Fiber, GLSL.",
+      "Immersive portfolio with interactive 3D scene. Next.js, React Three Fiber, GLSL.",
   },
 };
 
@@ -54,27 +51,24 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: SEASON_BOOT_SCRIPT }} />
-        <script dangerouslySetInnerHTML={{ __html: LANG_BOOT_SCRIPT }} />
       </head>
       <body
         className="min-h-full flex flex-col"
         suppressHydrationWarning
       >
-        <LanguageProvider>
-          <SeasonProvider>
-            <FrozenBackground />
-            <ScrollProgress />
-            {children}
-            <CustomCursor />
-            <MagneticTargets />
-          </SeasonProvider>
-        </LanguageProvider>
+        <SeasonProvider>
+          <FrozenBackground />
+          <ScrollProgress />
+          {children}
+          <CustomCursor />
+          <MagneticTargets />
+        </SeasonProvider>
       </body>
     </html>
   );

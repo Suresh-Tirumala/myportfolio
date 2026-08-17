@@ -12,17 +12,10 @@ import ProjectModal, {
   type ProjectDetail,
 } from "@/components/ProjectModal";
 import AboutSection from "@/components/AboutSection";
-import { useLanguage } from "@/components/LanguageProvider";
 import { useIsMobile } from "@/lib/useIsMobile";
-import { SKILLS_FLAT } from "@/lib/skills";
-import type { Lang } from "@/lib/i18n";
+import { SKILLS_FLAT, TAGLINES } from "@/lib/skills";
 
 const EMAIL = "tirumalasureshmahimakumar@gmail.com";
-
-// Localised content lives in `{ es, en }` objects inside these arrays so the
-// page can be a straightforward array.map() at render time. Tech names stay
-// as plain strings (they're brand names, not localised).
-type Localised = { es: string; en: string };
 
 type Project = ProjectDetail & {
   align: "left" | "right";
@@ -32,10 +25,7 @@ type Project = ProjectDetail & {
 const projects: Project[] = [
   {
     num: "01",
-    name: {
-      es: "Revisor de Código",
-      en: "Code Reviewer"
-    },
+    name: "Code Reviewer",
     stack: [
       "React 19",
       "TypeScript",
@@ -47,14 +37,8 @@ const projects: Project[] = [
       "Three.js",
       "Python",
     ],
-    desc: {
-      es: "Workspace de revision de codigo con IA para analizar, refactorizar y simular fragmentos de codigo con foco en bugs, seguridad, rendimiento y limpieza.",
-      en: "AI code review workspace for analyzing, refactoring, and simulating code snippets with focus areas for bugs, security, performance, and cleanliness."
-    },
-    details: {
-      es: "Aplicacion full-stack construida con React 19, TypeScript y Vite, con un backend Express conectado a MySQL. El editor detecta el lenguaje del codigo, permite subir archivos y ejecuta tres flujos principales: analisis estructurado, reescritura/refactorizacion y simulacion de salida. Usa Groq para las respuestas de revision, refactorizacion, chat y simulacion, y Gemini para funciones multimedia como voz e identidad visual. Incluye historial local de sesiones, panel de asistente, vista de hallazgos por severidad y previsualizacion en iframe para HTML, CSS, SVG y XML.",
-      en: "Full-stack application built with React 19, TypeScript, and Vite, backed by an Express API connected to MySQL. The workspace detects the code language, supports file uploads, and runs three main flows: structured review, rewrite/refactor, and output simulation. Groq powers review, refactor, chat, and simulation responses, while Gemini supports multimedia features such as speech and visual identity generation. It includes local session history, an assistant panel, severity-based findings, and an iframe preview for HTML, CSS, SVG, and XML."
-    },
+    desc: "AI code review workspace for analyzing, refactoring, and simulating code snippets with focus areas for bugs, security, performance, and cleanliness.",
+    details: "Full-stack application built with React 19, TypeScript, and Vite, backed by an Express API connected to MySQL. The workspace detects the code language, supports file uploads, and runs three main flows: structured review, rewrite/refactor, and output simulation. Groq powers review, refactor, chat, and simulation responses, while Gemini supports multimedia features such as speech and visual identity generation. It includes local session history, an assistant panel, severity-based findings, and an iframe preview for HTML, CSS, SVG, and XML.",
     github: "https://github.com/Suresh-Tirumala/code-reviewer",
     url: "https://code-reviewer-azure-eight.vercel.app/",
     media: [
@@ -68,10 +52,7 @@ const projects: Project[] = [
   },
   {
     num: "02",
-    name: {
-      es: "MediCore HMS",
-      en: "MediCore HMS",
-    },
+    name: "MediCore HMS",
     stack: [
       "Java",
       "Spring Boot 3",
@@ -84,14 +65,8 @@ const projects: Project[] = [
       "Groq API",
       "WebSockets",
     ],
-    desc: {
-      es: "Sistema de gestión hospitalaria completo con roles de usuario, tableros interactivos y asistente médico con IA (Groq).",
-      en: "Complete hospital management system with user roles, interactive dashboards, and an AI medical assistant (Groq).",
-    },
-    details: {
-      es: "Aplicación full-stack que gestiona todo el flujo de trabajo hospitalario: admisión y perfiles de pacientes, perfiles y disponibilidad de médicos, programación de citas, historiales clínicos, facturas y pagos. El backend en Spring Boot implementa seguridad con Spring Security y tokens JWT para roles (Admin, Médico, Recepcionista, Paciente). Integra un asistente médico virtual inteligente utilizando la API de Groq para responder consultas de salud y guías de rehabilitación.",
-      en: "Full-stack application managing hospital workflows: patient registration, doctor profiles and availability, appointment booking, medical records, billing, and payments. The Spring Boot backend implements role-based access control with Spring Security and JWT for Admins, Doctors, Receptionists, and Patients. Features a smart virtual medical assistant using the Groq API to provide educational health advice and rehabilitation guidance.",
-    },
+    desc: "Complete hospital management system with user roles, interactive dashboards, and an AI medical assistant (Groq).",
+    details: "Full-stack application managing hospital workflows: patient registration, doctor profiles and availability, appointment booking, medical records, billing, and payments. The Spring Boot backend implements role-based access control with Spring Security and JWT for Admins, Doctors, Receptionists, and Patients. Features a smart virtual medical assistant using the Groq API to provide educational health advice and rehabilitation guidance.",
     github: "https://github.com/Suresh-Tirumala/hospital-management",
     url: "https://hms-frontend-mbt1.onrender.com",
     media: [
@@ -106,10 +81,7 @@ const projects: Project[] = [
   },
   {
     num: "03",
-    name: {
-      es: "HealthChat AI",
-      en: "HealthChat AI",
-    },
+    name: "HealthChat AI",
     stack: [
       "React 18",
       "TypeScript",
@@ -123,14 +95,8 @@ const projects: Project[] = [
       "SQLite",
       "Render",
     ],
-    desc: {
-      es: "Asistente de salud con IA que permite chatear sobre síntomas, verificar condiciones médicas, subir documentos de salud y gestionar un perfil médico personal.",
-      en: "AI-powered health assistant to chat about symptoms, check medical conditions, upload health documents, and manage a personal health profile.",
-    },
-    details: {
-      es: "Aplicación full-stack con frontend en React 18 + TypeScript + Vite y backend en Django REST Framework. Integra el modelo Llama 3.1 vía Groq para respuestas de salud contextualizadas. Incluye autenticación JWT, verificador de síntomas estructurado, análisis de documentos médicos, detección de emergencias, historial de conversaciones con búsqueda, soporte de voz y temas claro/oscuro. Desplegada en Render con WhiteNoise para assets estáticos.",
-      en: "Full-stack application with a React 18 + TypeScript + Vite frontend and Django REST Framework backend. Integrates the Llama 3.1 model via Groq for contextual health responses. Features include JWT authentication, structured symptom checker, medical document analysis, emergency detection, searchable conversation history, voice input, and light/dark theme. Deployed on Render with WhiteNoise for static assets.",
-    },
+    desc: "AI-powered health assistant to chat about symptoms, check medical conditions, upload health documents, and manage a personal health profile.",
+    details: "Full-stack application with a React 18 + TypeScript + Vite frontend and Django REST Framework backend. Integrates the Llama 3.1 model via Groq for contextual health responses. Features include JWT authentication, structured symptom checker, medical document analysis, emergency detection, searchable conversation history, voice input, and light/dark theme. Deployed on Render with WhiteNoise for static assets.",
     github: "https://github.com/Suresh-Tirumala/infosys-project",
     url: "https://infosys-project-denm.onrender.com",
     media: [
@@ -145,10 +111,7 @@ const projects: Project[] = [
   },
   {
     num: "04",
-    name: {
-      es: "PronounceAI",
-      en: "PronounceAI",
-    },
+    name: "PronounceAI",
     stack: [
       "Next.js 16",
       "React 19",
@@ -161,14 +124,8 @@ const projects: Project[] = [
       "Recharts",
       "Docker",
     ],
-    desc: {
-      es: "Plataforma de pronunciacion en ingles con IA que analiza audio grabado o subido, puntua fluidez y claridad, y entrega feedback palabra por palabra.",
-      en: "AI English pronunciation platform that analyzes uploaded or recorded speech, scores fluency and clarity, and gives word-level feedback.",
-    },
-    details: {
-      es: "SaaS full-stack para practicar pronunciacion en ingles. El frontend en Next.js, React y TypeScript permite grabar desde el navegador, subir audio MP3/WAV/M4A/WEBM, revisar consejos antes de hablar y visualizar resultados con graficos, transcript interactivo y reportes descargables. El backend en FastAPI procesa audio de forma temporal, normaliza el archivo, transcribe con Whisper, alinea palabras con WhisperX y calcula puntuaciones de pronunciacion, fluidez, claridad y confianza. Tambien genera recomendaciones personalizadas y palabras de practica para que el usuario sepa exactamente que mejorar.",
-      en: "Full-stack SaaS for practicing English pronunciation. The Next.js, React, and TypeScript frontend supports browser recording, MP3/WAV/M4A/WEBM uploads, speaking tips, interactive results, charts, transcript review, and downloadable reports. The FastAPI backend processes audio ephemerally, normalizes the file, transcribes with Whisper, aligns words with WhisperX, and calculates pronunciation, fluency, clarity, and confidence scores. It also returns personalized recommendations and practice words so learners know exactly what to improve.",
-    },
+    desc: "AI English pronunciation platform that analyzes uploaded or recorded speech, scores fluency and clarity, and gives word-level feedback.",
+    details: "Full-stack SaaS for practicing English pronunciation. The Next.js, React, and TypeScript frontend supports browser recording, MP3/WAV/M4A/WEBM uploads, speaking tips, interactive results, charts, transcript review, and downloadable reports. The FastAPI backend processes audio ephemerally, normalizes the file, transcribes with Whisper, aligns words with WhisperX, and calculates pronunciation, fluency, clarity, and confidence scores. It also returns personalized recommendations and practice words so learners know exactly what to improve.",
     github: "https://github.com/Suresh-Tirumala/ai-pronunciation",
     url: "https://ai-pronunciation-wcer.vercel.app",
     media: [
@@ -183,10 +140,7 @@ const projects: Project[] = [
   },
   {
     num: "05",
-    name: {
-      es: "GrowEasy (Importador de CSV con IA)",
-      en: "GrowEasy (AI CSV Importer)",
-    },
+    name: "GrowEasy (AI CSV Importer)",
     stack: [
       "Next.js 16",
       "React 19",
@@ -198,14 +152,8 @@ const projects: Project[] = [
       "shadcn/ui",
       "Framer Motion",
     ],
-    desc: {
-      es: "Importador de CSV con IA para CRM que utiliza Google Gemini para extraer y estandarizar datos no estructurados de hojas de cálculo de forma automática.",
-      en: "AI-powered CSV importer for CRM platforms that uses Google Gemini to automatically extract and standardize unstructured spreadsheet records.",
-    },
-    details: {
-      es: "Aplicación web de importación de CSV de nivel de producción construida para la plataforma GrowEasy. Permite subir cualquier archivo CSV desordenado o aleatorio sin mapeo previo de columnas; la IA analiza y extrae los campos clave (nombre, email, teléfono, empresa, origen) en segundos. El frontend en Next.js incluye arrastrar y soltar, seguimiento del progreso en tiempo real y virtualización para manejar grandes volúmenes de datos. El backend en Express se comunica con la API de Gemini 2.5 Flash de forma segura y evita los límites de tiempo de espera (timeouts) de funciones serverless como Vercel.",
-      en: "Production-ready AI CSV importer built for the GrowEasy CRM platform. It allows users to upload any messy, unknown, or random CSV layout without predefined column mappings; the AI parses and extracts key CRM fields (first name, last name, email, phone, company, source) in seconds. The Next.js frontend features drag-and-drop uploads, interactive progress tracking, and full virtualization for massive files. The dedicated Express backend handles the communication with Gemini-2.5-Flash safely, preventing serverless execution timeout limits.",
-    },
+    desc: "AI-powered CSV importer for CRM platforms that uses Google Gemini to automatically extract and standardize unstructured spreadsheet records.",
+    details: "Production-ready AI CSV importer built for the GrowEasy CRM platform. It allows users to upload any messy, unknown, or random CSV layout without predefined column mappings; the AI parses and extracts key CRM fields (first name, last name, email, phone, company, source) in seconds. The Next.js frontend features drag-and-drop uploads, interactive progress tracking, and full virtualization for massive files. The dedicated Express backend handles the communication with Gemini-2.5-Flash safely, preventing serverless execution timeout limits.",
     github: "https://github.com/Suresh-Tirumala/csv-ai",
     url: "https://csv-ai-azure.vercel.app",
     media: [
@@ -220,51 +168,30 @@ const projects: Project[] = [
 ];
 
 const experiences: Array<{
-  role: Localised;
+  role: string;
   company: string;
-  period: Localised;
-  location: Localised;
-  summary: Localised;
-  bullets: Localised[];
+  period: string;
+  location: string;
+  summary: string;
+  bullets: string[];
   stack: string[];
 }> = [
   {
-    role: { es: "Tech Lead", en: "Tech Lead" },
+    role: "Tech Lead",
     company: "Activalink",
-    period: { es: "2023 — Presente", en: "2023 — Present" },
-    location: { es: "Alcoy, España", en: "Alcoy, Spain" },
-    summary: {
-      es: "Activalink implementa y adapta ERPs para pymes y grandes empresas. Desarrollo módulos y personalizaciones custom sobre Odoo, integraciones a medida y proyectos de implantación llave en mano. Lidero un equipo de 3 desarrolladores: nuestro trabajo se mide en tiempo ahorrado y errores evitados.",
-      en: "Activalink implements and customises ERPs for SMBs and large companies. I build custom modules and personalisations on top of Odoo, bespoke integrations, and end-to-end implementation projects. I lead a team of 3 developers: our work is measured in time saved and errors avoided.",
-    },
+    period: "2023 — Present",
+    location: "Alcoy, Spain",
+    summary: "Activalink implements and customises ERPs for SMBs and large companies. I build custom modules and personalisations on top of Odoo, bespoke integrations, and end-to-end implementation projects. I lead a team of 3 developers: our work is measured in time saved and errors avoided.",
     bullets: [
-      {
-        es: "Invoice OCR in Odoo — de 4 h/día a 30 min (-87%).",
-        en: "Invoice OCR in Odoo — from 4 h/day down to 30 min (-87%).",
-      },
-      {
-        es: "Logística con mapa interactivo — -60% errores de seguimiento.",
-        en: "Interactive logistics map — -60% tracking errors.",
-      },
-      {
-        es: "Conciliación automática — cierre contable de 3 días a medio día.",
-        en: "Automated reconciliation — monthly close from 3 days to half a day.",
-      },
-      {
-        es: "Dashboards financieros — detección temprana de facturas sin emitir.",
-        en: "Financial dashboards — early detection of uninvoiced orders.",
-      },
+      "Invoice OCR in Odoo — from 4 h/day down to 30 min (-87%).",
+      "Interactive logistics map — -60% tracking errors.",
+      "Automated reconciliation — monthly close from 3 days to half a day.",
+      "Financial dashboards — early detection of uninvoiced orders.",
     ],
     stack: ["Odoo", "Python", "PostgreSQL", "Next.js", "TypeScript", "Docker"],
   },
 ];
 
-function pick<T>(loc: { es: T; en: T }, lang: Lang): T {
-  return loc[lang];
-}
-
-// Hero name split per word so each can rise independently. Whitespace
-// preserved as its own span so the line wraps naturally if needed.
 function HeroWord({
   text,
   delay,
@@ -282,7 +209,6 @@ function HeroWord({
 }
 
 export default function Home() {
-  const { t, lang } = useLanguage();
   const isMobile = useIsMobile();
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
@@ -309,11 +235,8 @@ export default function Home() {
             >
               Suresh Tirumala
             </span>
-            {/* Wrapper (not the pill itself) carries the hide: .status-pill
-                hard-sets display:inline-flex, which beats Tailwind's .hidden
-                due to CSS source order, so hiding must happen on a parent. */}
             <span className="hidden md:inline-flex">
-              <span className="status-pill">{t("header.availability")}</span>
+              <span className="status-pill">Open to opportunities</span>
             </span>
           </div>
           <div className="flex items-center gap-2 pointer-events-auto">
@@ -356,7 +279,7 @@ export default function Home() {
                 className="text-[11px] uppercase tracking-[0.3em] text-ice-300 mb-5 fade-in-up"
                 style={{ ["--d" as string]: "0ms" }}
               >
-                {t("hero.greeting")}
+                Hi, I am
               </p>
               <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold tracking-[-0.03em] text-ice-50 leading-[0.92] whitespace-normal break-words">
                 <HeroWord text="Suresh" delay={120} />
@@ -368,7 +291,7 @@ export default function Home() {
                 style={{ ["--d" as string]: "700ms" }}
               >
                 <a
-                  href={lang === "en" ? "/cv_en.pdf" : "/cv.pdf"}
+                  href="/cv_en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="hover"
@@ -379,7 +302,7 @@ export default function Home() {
                     <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z" />
                     <path d="M14 3v5h5" />
                   </svg>
-                  {t("hero.cv")}
+                  Download CV
                 </a>
                 <button
                   type="button"
@@ -394,7 +317,7 @@ export default function Home() {
                       ?.scrollIntoView({ behavior: "smooth", block: "start" })
                   }
                 >
-                  {t("hero.hire")}
+                  Contact me
                 </button>
                 {/* Mobile-only full-width break: forces the social icons onto
                     their own row below the two primary buttons. Hidden on md+
@@ -435,18 +358,18 @@ export default function Home() {
               style={{ ["--d" as string]: "900ms" }}
             >
               <span className="scroll-indicator">
-                <span>{t("hero.scroll")}</span>
+                <span>Scroll to explore</span>
                 <span className="scroll-indicator__rail" />
               </span>
               <span className="text-[11px] uppercase tracking-[0.25em] text-ice-400 hidden sm:inline">
-                {t("hero.keysHint")}
+                · hover over the keys
               </span>
             </div>
           </section>
 
           <AboutSection />
 
-          {/* Stack â€” desktop relies on the 200vh scroll + sticky title while
+          {/* Stack — desktop relies on the 200vh scroll + sticky title while
               the keyboard does the talking on hover. On mobile (md:) that
               choreography is gone, so we drop the tall scroll and render a
               real, legible skills grid with the same taglines. */}
@@ -458,13 +381,13 @@ export default function Home() {
               <div className="md:sticky md:top-28 text-center">
                 <Reveal>
                   <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
-                    {t("stack.title")}
+                    Tech Stack
                   </h2>
                 </Reveal>
                 <Reveal delay={120}>
                   <p className="mt-3 text-sm sm:text-base text-ice-400">
-                    <span className="hidden md:inline">{t("stack.hint")}</span>
-                    <span className="md:hidden">{t("stack.hintMobile")}</span>
+                    <span className="hidden md:inline">(hint: hover over a key)</span>
+                    <span className="md:hidden">The tools I build with.</span>
                   </p>
                 </Reveal>
               </div>
@@ -493,7 +416,7 @@ export default function Home() {
                           {s.title}
                         </p>
                         <p className="text-ice-400 text-xs mt-0.5 leading-snug">
-                          {t(`keyboard.taglines.${s.slug}`)}
+                          {TAGLINES[s.slug as keyof typeof TAGLINES] ?? ""}
                         </p>
                       </div>
                     </div>
@@ -503,12 +426,12 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Experience â€” title is sticky at top-24 (feels anchored) but sits
+          {/* Experience — title is sticky at top-24 (feels anchored) but sits
               BEHIND the cards (z-0 vs. card wrapper's z-10), so as you scroll
               the card slides over the title. The section has no extra filler
               beyond the cards, so when you scroll past the last card the
               section ends and the title un-pins and exits the viewport at the
-              same time â€” giving the "anchored then both disappear" feel. */}
+              same time — giving the "anchored then both disappear" feel. */}
           <section
             data-kb-section="experience"
             className="relative p-6 sm:p-10 md:p-14 pb-24"
@@ -516,12 +439,12 @@ export default function Home() {
             <div className="sticky top-24 sm:top-28 text-center mb-12 sm:mb-16 z-0">
               <Reveal>
                 <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
-                  {t("experience.title")}
+                  Experience
                 </h2>
               </Reveal>
               <Reveal delay={120}>
                 <p className="mt-3 text-sm sm:text-base text-ice-300">
-                  {t("experience.subtitle")}
+                  My professional journey.
                 </p>
               </Reveal>
             </div>
@@ -537,23 +460,23 @@ export default function Home() {
                   <header className="flex flex-wrap items-start justify-between gap-3 mb-5">
                     <div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-ice-50 tracking-tight">
-                        {pick(exp.role, lang)}
+                        {exp.role}
                       </h3>
                       <p className="text-ice-400 font-medium mt-1">
                         {exp.company}
                         <span className="text-ice-500/80 font-normal">
-                          {" Â· "}
-                          {pick(exp.location, lang)}
+                          {" · "}
+                          {exp.location}
                         </span>
                       </p>
                     </div>
                     <span className="font-mono text-xs text-ice-100 px-3 py-1 rounded-full border border-ice-700/70 bg-ink-2/60 whitespace-normal break-words">
-                      {pick(exp.period, lang)}
+                      {exp.period}
                     </span>
                   </header>
 
                   <p className="text-ice-200 leading-relaxed mb-5">
-                    {pick(exp.summary, lang)}
+                    {exp.summary}
                   </p>
 
                   <ul className="space-y-2.5 mb-6">
@@ -563,7 +486,7 @@ export default function Home() {
                         className="flex gap-3 text-ice-100 leading-relaxed"
                       >
                         <span className="mt-[0.65em] flex-none w-1.5 h-1.5 rounded-full bg-ice-400" />
-                        <span>{pick(b, lang)}</span>
+                        <span>{b}</span>
                       </li>
                     ))}
                   </ul>
@@ -605,33 +528,29 @@ export default function Home() {
                 className={
                   p.align === "left"
                     ? "max-w-xl relative"
-                    : // Right-aligned cards get extra right padding on md+ so
-                      // the action buttons ("Ver mÃ¡s") don't sit under the
-                      // fixed SectionNav dots on the right edge. On mobile they
-                      // collapse to a normal left-aligned full-width card.
-                      "max-w-xl relative md:ml-auto md:text-right md:mr-16 lg:mr-24"
+                    : "max-w-xl relative md:ml-auto md:text-right md:mr-16 lg:mr-24"
                 }
               >
                 <Reveal>
                   <p className="font-mono text-sm text-ice-400 mb-3">
-                    {p.num} Â· {t("projects.kicker")}
+                    {p.num} · project
                   </p>
                 </Reveal>
                 <Reveal delay={80}>
                   <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-ice-50 leading-[1.05] mb-4">
-                    {pick(p.name, lang)}
+                    {p.name}
                   </h2>
                 </Reveal>
                 {p.badge ? (
                   <Reveal delay={140}>
                     <span className="inline-block text-[10px] uppercase tracking-widest text-ice-300 border border-ice-700 rounded-full px-2 py-0.5 mb-4">
-                      {pick(p.badge, lang)}
+                      {p.badge}
                     </span>
                   </Reveal>
                 ) : null}
                 <Reveal delay={180}>
                   <p className="text-base sm:text-lg text-ice-200 leading-relaxed mb-6">
-                    {pick(p.desc, lang)}
+                    {p.desc}
                   </p>
                 </Reveal>
                 <Reveal delay={260}>
@@ -668,7 +587,7 @@ export default function Home() {
                       data-magnetic
                       className="frost-btn"
                     >
-                      {t("projects.viewMore")}
+                      View more
                       <svg
                         viewBox="0 0 24 24"
                         width="14"
@@ -688,7 +607,7 @@ export default function Home() {
             </section>
           ))}
 
-          {/* Contact â€” copy pinned to the left so the (large, hero-posed)
+          {/* Contact — copy pinned to the left so the (large, hero-posed)
               keyboard on the right has room to bob its random keys. */}
           <section
             data-kb-section="contact"
@@ -697,16 +616,16 @@ export default function Home() {
             <div className="max-w-xl relative">
               <Reveal>
                 <p className="font-mono text-sm text-ice-400 mb-3">
-                  {t("contact.kicker")}
+                  contact
                 </p>
               </Reveal>
               <Reveal delay={80}>
                 <h2 className="text-4xl sm:text-6xl font-semibold tracking-tight text-ice-50 mb-6">
-                  {t("contact.title")}
+                  Let&apos;s talk?
                 </h2>
               </Reveal>
               <Reveal delay={160}>
-                <p className="text-ice-200 mb-10">{t("contact.body")}</p>
+                <p className="text-ice-200 mb-10">If what you&apos;ve seen interests you, the keyboard is ready for the first message.</p>
               </Reveal>
               <Reveal delay={240}>
                 <div className="flex flex-wrap gap-3 pointer-events-auto">
@@ -718,14 +637,14 @@ export default function Home() {
                       <rect x="3" y="5" width="18" height="14" rx="2" />
                       <path d="M3 7l9 6 9-6" />
                     </svg>
-                    {t("contact.copyEmail")}
+                    Copy email
                   </CopyEmail>
                   <a
                     href={`mailto:${EMAIL}`}
                     data-cursor="hover"
                     className="frost-btn"
                   >
-                    {t("contact.openMail")}
+                    Open mailto
                   </a>
                   <a
                     href="https://github.com/Suresh-Tirumala"
@@ -734,7 +653,7 @@ export default function Home() {
                     data-cursor="hover"
                     className="frost-btn"
                   >
-                    {t("contact.github")}
+                    GitHub
                   </a>
                   <a
                     href="https://www.linkedin.com/in/suresh-mahima-kumar-tirumala"
@@ -743,14 +662,14 @@ export default function Home() {
                     data-cursor="hover"
                     className="frost-btn"
                   >
-                    {t("contact.linkedin")}
+                    LinkedIn
                   </a>
                 </div>
               </Reveal>
             </div>
             <Reveal delay={320}>
               <p className="mt-14 text-[11px] uppercase tracking-[0.25em] text-ice-400">
-                {t("contact.footer")}
+                © 2026 Suresh Mahima Kumar Tirumala. All rights reserved.
               </p>
             </Reveal>
           </section>
@@ -764,5 +683,3 @@ export default function Home() {
     </SmoothScroll>
   );
 }
-
-

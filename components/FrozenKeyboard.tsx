@@ -16,9 +16,8 @@ import {
   useState,
 } from "react";
 import { useSeason } from "@/components/SeasonProvider";
-import { useLanguage } from "@/components/LanguageProvider";
 import * as THREE from "three";
-import { SKILLS_GRID, type SkillIcon } from "@/lib/skills";
+import { SKILLS_GRID, TAGLINES, type SkillIcon } from "@/lib/skills";
 
 // Per-section keyboard "states" — same idea as Naresh's animated-background-
 // config.ts, but for our R3F keyboard. Values are tweened toward via lerp
@@ -598,7 +597,6 @@ function Keyboard({ mobile }: { mobile: boolean }) {
   const ref = useRef<THREE.Group>(null);
   const isMobile = mobile;
   const { palette } = useSeason();
-  const { t } = useLanguage();
   const [activeSection, activeSectionRef, highlightsRef] = useActiveSection();
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   // Mutable holders for the smoothed target — kept off React state so
@@ -810,7 +808,7 @@ function Keyboard({ mobile }: { mobile: boolean }) {
               lineHeight={1.25}
               overflowWrap="break-word"
             >
-              {t(`keyboard.taglines.${hoveredIcon.slug}`)}
+              {TAGLINES[hoveredIcon.slug] ?? ""}
             </Text>
           </group>
         </Suspense>
