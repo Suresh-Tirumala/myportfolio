@@ -7,16 +7,17 @@ import Reveal from "@/components/Reveal";
 import SectionNav from "@/components/SectionNav";
 import CopyEmail from "@/components/CopyEmail";
 import SeasonPicker from "@/components/SeasonPicker";
-import LanguagePicker from "@/components/LanguagePicker";
+
 import ProjectModal, {
   type ProjectDetail,
 } from "@/components/ProjectModal";
+import AboutSection from "@/components/AboutSection";
 import { useLanguage } from "@/components/LanguageProvider";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { SKILLS_FLAT } from "@/lib/skills";
 import type { Lang } from "@/lib/i18n";
 
-const EMAIL = "josemariaalberobelamendia@gmail.com";
+const EMAIL = "tirumalasureshmahimakumar@gmail.com";
 
 // Localised content lives in `{ es, en }` objects inside these arrays so the
 // page can be a straightforward array.map() at render time. Tech names stay
@@ -25,154 +26,196 @@ type Localised = { es: string; en: string };
 
 type Project = ProjectDetail & {
   align: "left" | "right";
-  section: "project1" | "project2" | "project3" | "project4";
+  section: "project1" | "project2" | "project3" | "project4" | "project5";
 };
 
 const projects: Project[] = [
   {
     num: "01",
     name: {
-      es: "Contestador IA de Reseñas Google",
-      en: "AI Responder for Google Reviews",
+      es: "Revisor de Código",
+      en: "Code Reviewer"
     },
     stack: [
-      "Next.js",
-      "FastAPI",
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Express",
+      "MySQL",
+      "Groq API",
+      "Gemini API",
+      "Three.js",
       "Python",
-      "PostgreSQL",
-      "Supabase",
-      "Claude API",
-      "Stripe",
-      "Celery",
     ],
     desc: {
-      es: "SaaS que genera respuestas personalizadas a reseñas de Google Business Profile con IA, manteniendo el tono de la marca.",
-      en: "SaaS that generates personalised replies to Google Business Profile reviews with AI while keeping the brand tone.",
+      es: "Workspace de revision de codigo con IA para analizar, refactorizar y simular fragmentos de codigo con foco en bugs, seguridad, rendimiento y limpieza.",
+      en: "AI code review workspace for analyzing, refactoring, and simulating code snippets with focus areas for bugs, security, performance, and cleanliness."
     },
     details: {
-      es: "Plataforma orientada a negocios locales en España para gestionar sus reseñas de Google Business Profile. El sistema hace polling cada 15 minutos, llama a Claude para generar respuestas alineadas con el tono de marca y las publica automáticamente (o las manda a revisión). Incluye Stripe con suscripciones y Customer Portal, autenticación con Google OAuth + PKCE, alertas por email/SMS para reseñas negativas y un dashboard con métricas.",
-      en: "A platform for local businesses in Spain to manage their Google Business Profile reviews. The system polls every 15 minutes, uses Claude to draft replies in the brand's tone and publishes them automatically (or sends them to review). Stripe handles subscriptions and Customer Portal, auth is Google OAuth with PKCE, and negative reviews fire email/SMS alerts. Dashboard with metrics included.",
+      es: "Aplicacion full-stack construida con React 19, TypeScript y Vite, con un backend Express conectado a MySQL. El editor detecta el lenguaje del codigo, permite subir archivos y ejecuta tres flujos principales: analisis estructurado, reescritura/refactorizacion y simulacion de salida. Usa Groq para las respuestas de revision, refactorizacion, chat y simulacion, y Gemini para funciones multimedia como voz e identidad visual. Incluye historial local de sesiones, panel de asistente, vista de hallazgos por severidad y previsualizacion en iframe para HTML, CSS, SVG y XML.",
+      en: "Full-stack application built with React 19, TypeScript, and Vite, backed by an Express API connected to MySQL. The workspace detects the code language, supports file uploads, and runs three main flows: structured review, rewrite/refactor, and output simulation. Groq powers review, refactor, chat, and simulation responses, while Gemini supports multimedia features such as speech and visual identity generation. It includes local session history, an assistant panel, severity-based findings, and an iframe preview for HTML, CSS, SVG, and XML."
     },
-    url: "https://revio.txemaalbero.com/",
+    github: "https://github.com/Suresh-Tirumala/code-reviewer",
+    url: "https://code-reviewer-azure-eight.vercel.app/",
     media: [
-      "/projects/revio/landing.png",
-      "/projects/revio/dashboard.png",
-      "/projects/revio/alertas.png",
-      "/projects/revio/analiticas.png",
-      "/projects/revio/negocios.png",
-      "/projects/revio/analiticas-ia.png",
+      "/projects/code-reviewer/1.png",
+      "/projects/code-reviewer/2.png",
+      "/projects/code-reviewer/3.png"
     ],
-    highlights: ["nextdotjs", "tailwindcss", "python", "postgresql"],
+    highlights: ["react", "typescript", "nodedotjs", "javascript", "python"],
     align: "left",
     section: "project1",
   },
   {
     num: "02",
     name: {
-      es: "Control de Temperaturas APPCC",
-      en: "HACCP Temperature Control",
+      es: "MediCore HMS",
+      en: "MediCore HMS",
     },
     stack: [
-      "Next.js 16",
-      "FastAPI",
-      "Python",
-      "PostgreSQL",
-      "Supabase",
-      "Claude API",
-      "Stripe",
-      "Celery",
+      "Java",
+      "Spring Boot 3",
+      "Spring Security",
+      "JWT",
+      "React 18",
+      "Vite",
+      "React Router",
+      "Recharts",
+      "Groq API",
+      "WebSockets",
     ],
     desc: {
-      es: "App para restaurantes que digitaliza el registro de temperaturas APPCC y genera planes e informes automáticos para inspecciones sanitarias.",
-      en: "App for restaurants that digitises HACCP temperature logs and auto-generates plans and reports for food safety inspections.",
+      es: "Sistema de gestión hospitalaria completo con roles de usuario, tableros interactivos y asistente médico con IA (Groq).",
+      en: "Complete hospital management system with user roles, interactive dashboards, and an AI medical assistant (Groq).",
     },
     details: {
-      es: "Digitaliza el control APPCC completo de un restaurante: registros de temperatura, trazabilidad, alérgenos y generación asistida por IA de los planes HACCP. Integración con Open Food Facts para importar alérgenos, MFA en la autenticación, multi-idioma con next-intl y pagos por suscripción con Stripe. Backend 100% async con FastAPI + SQLAlchemy y tareas en Celery.",
-      en: "Full HACCP digitisation for a restaurant: temperature logs, traceability, allergens, and AI-assisted generation of HACCP plans. Integrates with Open Food Facts for allergens, MFA-protected auth, i18n with next-intl, subscription billing with Stripe. Fully async backend with FastAPI + SQLAlchemy and Celery workers.",
+      es: "Aplicación full-stack que gestiona todo el flujo de trabajo hospitalario: admisión y perfiles de pacientes, perfiles y disponibilidad de médicos, programación de citas, historiales clínicos, facturas y pagos. El backend en Spring Boot implementa seguridad con Spring Security y tokens JWT para roles (Admin, Médico, Recepcionista, Paciente). Integra un asistente médico virtual inteligente utilizando la API de Groq para responder consultas de salud y guías de rehabilitación.",
+      en: "Full-stack application managing hospital workflows: patient registration, doctor profiles and availability, appointment booking, medical records, billing, and payments. The Spring Boot backend implements role-based access control with Spring Security and JWT for Admins, Doctors, Receptionists, and Patients. Features a smart virtual medical assistant using the Groq API to provide educational health advice and rehabilitation guidance.",
     },
-    url: "https://aptia.txemaalbero.com/",
+    github: "https://github.com/Suresh-Tirumala/hospital-management",
+    url: "https://hms-frontend-mbt1.onrender.com",
     media: [
-      "/projects/aptia/landing.png",
-      "/projects/aptia/panel.png",
-      "/projects/aptia/registros.png",
-      "/projects/aptia/carta-alergenos.png",
-      "/projects/aptia/inspeccion.png",
-      "/projects/aptia/cuestionario.png",
+      "/projects/hms/1.png",
+      "/projects/hms/2.png",
+      "/projects/hms/3.png",
+      "/projects/hms/4.png"
     ],
-    highlights: ["nextdotjs", "tailwindcss", "python", "postgresql", "typescript"],
-    badge: { es: "En desarrollo", en: "In progress" },
+    highlights: ["react", "javascript", "docker", "git"],
     align: "right",
     section: "project2",
   },
   {
     num: "03",
     name: {
-      es: "Gestor de Finanzas Personales",
-      en: "Personal Finance Tracker",
+      es: "HealthChat AI",
+      en: "HealthChat AI",
     },
     stack: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
       "Django",
+      "Django REST Framework",
       "Python",
+      "Groq (Llama 3.1)",
+      "JWT",
       "SQLite",
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Chart.js",
-      "pandas",
+      "Render",
     ],
     desc: {
-      es: "Dashboard para seguimiento de ingresos, gastos y objetivos de ahorro con visualizaciones gráficas, importación desde Excel e informes mensuales.",
-      en: "Dashboard to track income, expenses and savings goals with visual charts, Excel import and monthly reports.",
+      es: "Asistente de salud con IA que permite chatear sobre síntomas, verificar condiciones médicas, subir documentos de salud y gestionar un perfil médico personal.",
+      en: "AI-powered health assistant to chat about symptoms, check medical conditions, upload health documents, and manage a personal health profile.",
     },
     details: {
-      es: "Aplicación Django clásica (MVT) para finanzas personales: categorización de gastos, objetivos de ahorro, importación masiva desde Excel (xlsx/xls) y gráficos con Chart.js. Temas claro/oscuro hechos con CSS puro y sin dependencias frontend. Un proyecto que prioriza simplicidad y robustez: sin frameworks en el cliente, autenticación nativa de Django, base de datos SQLite.",
-      en: "Classic Django (MVT) app for personal finance: expense categorisation, savings goals, bulk import from Excel (xlsx/xls) and Chart.js-powered graphs. Light/dark themes in pure CSS with zero frontend dependencies. A project that favours simplicity and robustness: no client framework, Django's built-in auth, SQLite storage.",
+      es: "Aplicación full-stack con frontend en React 18 + TypeScript + Vite y backend en Django REST Framework. Integra el modelo Llama 3.1 vía Groq para respuestas de salud contextualizadas. Incluye autenticación JWT, verificador de síntomas estructurado, análisis de documentos médicos, detección de emergencias, historial de conversaciones con búsqueda, soporte de voz y temas claro/oscuro. Desplegada en Render con WhiteNoise para assets estáticos.",
+      en: "Full-stack application with a React 18 + TypeScript + Vite frontend and Django REST Framework backend. Integrates the Llama 3.1 model via Groq for contextual health responses. Features include JWT authentication, structured symptom checker, medical document analysis, emergency detection, searchable conversation history, voice input, and light/dark theme. Deployed on Render with WhiteNoise for static assets.",
     },
-    github: "https://github.com/Txemalon/Gestor-de-gastos-personales",
+    github: "https://github.com/Suresh-Tirumala/infosys-project",
+    url: "https://infosys-project-denm.onrender.com",
     media: [
+      "/projects/gestor-gastos/landing.png",
       "/projects/gestor-gastos/dashboard.png",
-      "/projects/gestor-gastos/wallets.png",
-      "/projects/gestor-gastos/transacciones.png",
-      "/projects/gestor-gastos/categorias.png",
-      "/projects/gestor-gastos/reportes.png",
-      "/projects/gestor-gastos/inversiones.png",
+      "/projects/gestor-gastos/chat.png",
+      "/projects/gestor-gastos/symptoms.png",
     ],
-    highlights: ["python", "javascript", "html5", "css"],
+    highlights: ["react", "typescript", "python", "django"],
     align: "left",
     section: "project3",
   },
   {
     num: "04",
     name: {
-      es: "Tienda online de dianas",
-      en: "Dartboards e-commerce",
+      es: "PronounceAI",
+      en: "PronounceAI",
     },
     stack: [
-      "Next.js 15",
-      "React",
+      "Next.js 16",
+      "React 19",
       "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "NextAuth",
-      "Stripe",
+      "Tailwind CSS",
+      "FastAPI",
+      "Python",
+      "Whisper",
+      "WhisperX",
+      "Recharts",
+      "Docker",
+    ],
+    desc: {
+      es: "Plataforma de pronunciacion en ingles con IA que analiza audio grabado o subido, puntua fluidez y claridad, y entrega feedback palabra por palabra.",
+      en: "AI English pronunciation platform that analyzes uploaded or recorded speech, scores fluency and clarity, and gives word-level feedback.",
+    },
+    details: {
+      es: "SaaS full-stack para practicar pronunciacion en ingles. El frontend en Next.js, React y TypeScript permite grabar desde el navegador, subir audio MP3/WAV/M4A/WEBM, revisar consejos antes de hablar y visualizar resultados con graficos, transcript interactivo y reportes descargables. El backend en FastAPI procesa audio de forma temporal, normaliza el archivo, transcribe con Whisper, alinea palabras con WhisperX y calcula puntuaciones de pronunciacion, fluidez, claridad y confianza. Tambien genera recomendaciones personalizadas y palabras de practica para que el usuario sepa exactamente que mejorar.",
+      en: "Full-stack SaaS for practicing English pronunciation. The Next.js, React, and TypeScript frontend supports browser recording, MP3/WAV/M4A/WEBM uploads, speaking tips, interactive results, charts, transcript review, and downloadable reports. The FastAPI backend processes audio ephemerally, normalizes the file, transcribes with Whisper, aligns words with WhisperX, and calculates pronunciation, fluency, clarity, and confidence scores. It also returns personalized recommendations and practice words so learners know exactly what to improve.",
+    },
+    github: "https://github.com/Suresh-Tirumala/ai-pronunciation",
+    url: "https://ai-pronunciation-wcer.vercel.app",
+    media: [
+      "/projects/pronounce-ai/1.png",
+      "/projects/pronounce-ai/2.png",
+      "/projects/pronounce-ai/3.png",
+      "/projects/pronounce-ai/4.png",
+    ],
+    highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "python"],
+    align: "right",
+    section: "project4",
+  },
+  {
+    num: "05",
+    name: {
+      es: "GrowEasy (Importador de CSV con IA)",
+      en: "GrowEasy (AI CSV Importer)",
+    },
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "Google Gemini AI",
+      "shadcn/ui",
       "Framer Motion",
     ],
     desc: {
-      es: "E-commerce moderno para venta de dianas con pagos integrados, autenticación social, panel de administración y animaciones fluidas.",
-      en: "Modern e-commerce for dartboards with integrated payments, social auth, an admin panel and smooth animations.",
+      es: "Importador de CSV con IA para CRM que utiliza Google Gemini para extraer y estandarizar datos no estructurados de hojas de cálculo de forma automática.",
+      en: "AI-powered CSV importer for CRM platforms that uses Google Gemini to automatically extract and standardize unstructured spreadsheet records.",
     },
     details: {
-      es: "Tienda online completa con catálogo, carrito y checkout con Stripe. NextAuth con Google OAuth y credenciales, rate limiting con Upstash Redis, validación con Zod y un panel de administración separado (AdminJS sobre Express, puerto 3001). Transiciones y microinteracciones con Framer Motion para darle un acabado más premium que una tienda al uso.",
-      en: "A full e-commerce with catalogue, cart and Stripe checkout. NextAuth with Google OAuth and credentials, Upstash Redis for rate limiting, Zod validation, and a separate admin panel (AdminJS on Express, port 3001). Framer Motion powers transitions and micro-interactions for a more premium feel than a typical shop.",
+      es: "Aplicación web de importación de CSV de nivel de producción construida para la plataforma GrowEasy. Permite subir cualquier archivo CSV desordenado o aleatorio sin mapeo previo de columnas; la IA analiza y extrae los campos clave (nombre, email, teléfono, empresa, origen) en segundos. El frontend en Next.js incluye arrastrar y soltar, seguimiento del progreso en tiempo real y virtualización para manejar grandes volúmenes de datos. El backend en Express se comunica con la API de Gemini 2.5 Flash de forma segura y evita los límites de tiempo de espera (timeouts) de funciones serverless como Vercel.",
+      en: "Production-ready AI CSV importer built for the GrowEasy CRM platform. It allows users to upload any messy, unknown, or random CSV layout without predefined column mappings; the AI parses and extracts key CRM fields (first name, last name, email, phone, company, source) in seconds. The Next.js frontend features drag-and-drop uploads, interactive progress tracking, and full virtualization for massive files. The dedicated Express backend handles the communication with Gemini-2.5-Flash safely, preventing serverless execution timeout limits.",
     },
+    github: "https://github.com/Suresh-Tirumala/csv-ai",
+    url: "https://csv-ai-azure.vercel.app",
     media: [
-      "/projects/dianas/packs.png",
-      "/projects/dianas/catalogo.png",
+      "/projects/csv-ai/1.png",
+      "/projects/csv-ai/2.png",
+      "/projects/csv-ai/3.png",
     ],
-    highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "postgresql"],
-    badge: { es: "En construcción", en: "Under construction" },
-    align: "right",
-    section: "project4",
+    highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "nodedotjs"],
+    align: "left",
+    section: "project5",
   },
 ];
 
@@ -196,12 +239,12 @@ const experiences: Array<{
     },
     bullets: [
       {
-        es: "OCR de facturas en Odoo — de 4 h/día a 30 min (−87 %).",
-        en: "Invoice OCR in Odoo — from 4 h/day down to 30 min (−87 %).",
+        es: "Invoice OCR in Odoo — de 4 h/día a 30 min (-87%).",
+        en: "Invoice OCR in Odoo — from 4 h/day down to 30 min (-87%).",
       },
       {
-        es: "Logística con mapa interactivo — −60 % errores de seguimiento.",
-        en: "Interactive logistics map — −60 % tracking errors.",
+        es: "Logística con mapa interactivo — -60% errores de seguimiento.",
+        en: "Interactive logistics map — -60% tracking errors.",
       },
       {
         es: "Conciliación automática — cierre contable de 3 días a medio día.",
@@ -256,13 +299,15 @@ export default function Home() {
         )}
 
         {/* Header */}
+        
+        {/* Header */}
         <header className="fixed top-0 inset-x-0 z-50 px-6 sm:px-10 md:px-14 py-5 flex items-center justify-between pointer-events-none">
           <div className="flex items-center gap-3 pointer-events-auto">
             <span
               data-cursor="hover"
-              className="text-sm font-semibold tracking-tight text-ice-100 whitespace-nowrap"
+              className="text-sm font-semibold tracking-tight text-ice-100 whitespace-normal break-words"
             >
-              Txema Albero
+              Suresh Tirumala
             </span>
             {/* Wrapper (not the pill itself) carries the hide: .status-pill
                 hard-sets display:inline-flex, which beats Tailwind's .hidden
@@ -275,7 +320,7 @@ export default function Home() {
             <SeasonPicker />
             <span className="hidden md:inline-flex">
             <a
-              href="https://github.com/Txemalon/3d-portfolio"
+              href="https://github.com/Suresh-Tirumala"
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="hover"
@@ -287,7 +332,7 @@ export default function Home() {
               <span>GitHub</span>
             </a>
             </span>
-            <LanguagePicker />
+            
           </div>
         </header>
 
@@ -297,7 +342,7 @@ export default function Home() {
           {/* Hero */}
           <section
             data-kb-section="hero"
-            className="min-h-screen flex flex-col justify-center p-6 sm:p-10 md:p-14"
+            className="relative min-h-screen flex flex-col justify-center p-6 sm:p-10 md:p-14"
           >
             {/* Mobile-only 3D centerpiece. Lives inside the hero (scrolls away
                 with it) and takes pointer events so keycaps are tappable. */}
@@ -313,21 +358,11 @@ export default function Home() {
               >
                 {t("hero.greeting")}
               </p>
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold tracking-[-0.03em] text-ice-50 leading-[0.92] whitespace-nowrap">
-                <HeroWord text="Txema" delay={120} />
+              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold tracking-[-0.03em] text-ice-50 leading-[0.92] whitespace-normal break-words">
+                <HeroWord text="Suresh" delay={120} />
                 <br />
-                <HeroWord text="Albero" delay={260} className="text-ice-400" />
+                <HeroWord text="Mahima Kumar Tirumala" delay={260} className="text-ice-400" />
               </h1>
-              <p
-                className="mt-8 text-base sm:text-lg md:text-xl text-ice-200 max-w-xl leading-relaxed fade-in-up"
-                style={{ ["--d" as string]: "520ms" }}
-              >
-                {t("hero.roleLine")}
-                <br />
-                {t("hero.tagline")}
-              </p>
-
-              {/* CTAs */}
               <div
                 className="mt-10 flex flex-wrap items-center gap-3 pointer-events-auto fade-in-up"
                 style={{ ["--d" as string]: "700ms" }}
@@ -366,7 +401,7 @@ export default function Home() {
                     so desktop keeps everything on a single line. */}
                 <div className="basis-full h-0 md:hidden" aria-hidden />
                 <a
-                  href="https://es.linkedin.com/in/jose-mar%C3%ADa-albero-belamendia-b9319a246"
+                  href="https://www.linkedin.com/in/suresh-mahima-kumar-tirumala"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="hover"
@@ -379,7 +414,7 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://github.com/Txemalon"
+                  href="https://github.com/Suresh-Tirumala"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="hover"
@@ -409,7 +444,9 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Stack — desktop relies on the 200vh scroll + sticky title while
+          <AboutSection />
+
+          {/* Stack â€” desktop relies on the 200vh scroll + sticky title while
               the keyboard does the talking on hover. On mobile (md:) that
               choreography is gone, so we drop the tall scroll and render a
               real, legible skills grid with the same taglines. */}
@@ -466,12 +503,12 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Experience — title is sticky at top-24 (feels anchored) but sits
+          {/* Experience â€” title is sticky at top-24 (feels anchored) but sits
               BEHIND the cards (z-0 vs. card wrapper's z-10), so as you scroll
               the card slides over the title. The section has no extra filler
               beyond the cards, so when you scroll past the last card the
               section ends and the title un-pins and exits the viewport at the
-              same time — giving the "anchored then both disappear" feel. */}
+              same time â€” giving the "anchored then both disappear" feel. */}
           <section
             data-kb-section="experience"
             className="relative p-6 sm:p-10 md:p-14 pb-24"
@@ -505,12 +542,12 @@ export default function Home() {
                       <p className="text-ice-400 font-medium mt-1">
                         {exp.company}
                         <span className="text-ice-500/80 font-normal">
-                          {" · "}
+                          {" Â· "}
                           {pick(exp.location, lang)}
                         </span>
                       </p>
                     </div>
-                    <span className="font-mono text-xs text-ice-100 px-3 py-1 rounded-full border border-ice-700/70 bg-ink-2/60 whitespace-nowrap">
+                    <span className="font-mono text-xs text-ice-100 px-3 py-1 rounded-full border border-ice-700/70 bg-ink-2/60 whitespace-normal break-words">
                       {pick(exp.period, lang)}
                     </span>
                   </header>
@@ -569,7 +606,7 @@ export default function Home() {
                   p.align === "left"
                     ? "max-w-xl relative"
                     : // Right-aligned cards get extra right padding on md+ so
-                      // the action buttons ("Ver más") don't sit under the
+                      // the action buttons ("Ver mÃ¡s") don't sit under the
                       // fixed SectionNav dots on the right edge. On mobile they
                       // collapse to a normal left-aligned full-width card.
                       "max-w-xl relative md:ml-auto md:text-right md:mr-16 lg:mr-24"
@@ -577,7 +614,7 @@ export default function Home() {
               >
                 <Reveal>
                   <p className="font-mono text-sm text-ice-400 mb-3">
-                    {p.num} · {t("projects.kicker")}
+                    {p.num} Â· {t("projects.kicker")}
                   </p>
                 </Reveal>
                 <Reveal delay={80}>
@@ -651,7 +688,7 @@ export default function Home() {
             </section>
           ))}
 
-          {/* Contact — copy pinned to the left so the (large, hero-posed)
+          {/* Contact â€” copy pinned to the left so the (large, hero-posed)
               keyboard on the right has room to bob its random keys. */}
           <section
             data-kb-section="contact"
@@ -691,7 +728,7 @@ export default function Home() {
                     {t("contact.openMail")}
                   </a>
                   <a
-                    href="https://github.com/Txemalon"
+                    href="https://github.com/Suresh-Tirumala"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="hover"
@@ -700,7 +737,7 @@ export default function Home() {
                     {t("contact.github")}
                   </a>
                   <a
-                    href="https://es.linkedin.com/in/jose-mar%C3%ADa-albero-belamendia-b9319a246"
+                    href="https://www.linkedin.com/in/suresh-mahima-kumar-tirumala"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor="hover"
@@ -727,3 +764,5 @@ export default function Home() {
     </SmoothScroll>
   );
 }
+
+

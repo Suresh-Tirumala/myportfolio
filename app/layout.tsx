@@ -23,20 +23,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Txema Albero — Software Engineer & Tech Lead",
+  title: "Suresh Mahima Kumar Tirumala — Full Stack Developer",
   description:
-    "Portfolio inmersivo de Txema Albero — Software Engineer / Tech Lead. Experiencias web 3D con Next.js y React Three Fiber.",
-  authors: [{ name: "Txema Albero" }],
+    "Portfolio de Suresh Mahima Kumar Tirumala — Full Stack Developer. Experiencias web inmersivas con Next.js y React Three Fiber.",
+  authors: [{ name: "Suresh Mahima Kumar Tirumala" }],
   openGraph: {
-    title: "Txema Albero — Software Engineer & Tech Lead",
+    title: "Suresh Mahima Kumar Tirumala — Full Stack Developer",
     description:
       "Portfolio inmersivo con escena 3D interactiva. Next.js, React Three Fiber, GLSL.",
     type: "website",
-    locale: "es_ES",
+    locale: "es_ES", // could be changed to en_US depending on the app's primary target
   },
   twitter: {
     card: "summary_large_image",
-    title: "Txema Albero — Software Engineer & Tech Lead",
+    title: "Suresh Mahima Kumar Tirumala — Full Stack Developer",
     description:
       "Portfolio inmersivo con escena 3D interactiva. Next.js, React Three Fiber, GLSL.",
   },
@@ -59,8 +59,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Run synchronously before hydration to apply the user's stored
-            season + language — avoids a flash of the default values. */}
         <script dangerouslySetInnerHTML={{ __html: SEASON_BOOT_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: LANG_BOOT_SCRIPT }} />
       </head>

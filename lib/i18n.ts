@@ -6,7 +6,7 @@
 export type Lang = "es" | "en";
 
 export const LANGUAGES: Lang[] = ["es", "en"];
-export const DEFAULT_LANG: Lang = "es";
+export const DEFAULT_LANG: Lang = "en";
 
 type Leaf = Record<Lang, string>;
 type Node = Leaf | { [key: string]: Node };
@@ -17,18 +17,19 @@ function isLeaf(node: Node): node is Leaf {
 
 export const DICT = {
   picker: {
-    season: { es: "Estación", en: "Season" },
+    season: { es: "EstaciÃ³n", en: "Season" },
     language: { es: "Idioma", en: "Language" },
   },
   seasons: {
     spring: { es: "Primavera", en: "Spring" },
     summer: { es: "Verano", en: "Summer" },
-    autumn: { es: "Otoño", en: "Autumn" },
+    autumn: { es: "OtoÃ±o", en: "Autumn" },
     winter: { es: "Invierno", en: "Winter" },
   },
   nav: {
     aria: { es: "Secciones", en: "Sections" },
     home: { es: "Inicio", en: "Home" },
+    about: { es: "Sobre mÃ­", en: "About" },
     stack: { es: "Stack", en: "Stack" },
     experience: { es: "Experiencia", en: "Experience" },
     project: { es: "Proyecto", en: "Project" },
@@ -43,8 +44,8 @@ export const DICT = {
   hero: {
     greeting: { es: "Hola, soy", en: "Hi, I am" },
     roleLine: {
-      es: "Software Engineer & Tech Lead.",
-      en: "Software Engineer & Tech Lead.",
+      es: "Aspiring Software Engineer & Full Stack Developer.",
+      en: "Aspiring Software Engineer & Full Stack Developer.",
     },
     tagline: {
       es: "Especializado en ERPs y aplicaciones full-stack para empresas.",
@@ -54,14 +55,27 @@ export const DICT = {
     hire: { es: "Contactarme", en: "Contact me" },
     scroll: { es: "Scroll para explorar", en: "Scroll to explore" },
     keysHint: {
-      es: "· hover sobre las teclas",
-      en: "· hover over the keys",
+      es: "Â· hover sobre las teclas",
+      en: "Â· hover over the keys",
+    },
+  },
+  about: {
+    title: { es: "Sobre", en: "About" },
+    titleAccent: { es: "MÃ­", en: "Me" },
+    name: { es: "Suresh Tirumala", en: "Suresh Tirumala" },
+    tagline: {
+      es: "Dando forma al maÃ±ana con cÃ³digo y creatividad",
+      en: "Shaping Tomorrow with Code and Creativity",
+    },
+    bio: {
+      es: "Como apasionado desarrollador Full Stack con experiencia en React, TypeScript, Django, REST, HTML y CSS, destaco en crear experiencias digitales fluidas. Mi trayectoria incluye roles como Intern en MuLearn, Presidente del Sindicato en SNGIST y CEO en SNGIST IEDC, donde he impulsado la innovaciÃ³n y liderado transformaciones digitales. Como lÃ­der, he empoderado equipos hacia la excelencia y fomentado el espÃ­ritu emprendedor. Busco conectar con entusiastas de la tecnologÃ­a y visionarios para explorar nuevas oportunidades.",
+      en: "As a passionate Full Stack Developer with expertise in React, TypeScript, Django, REST, HTML, and CSS, I excel in crafting seamless digital experiences. My journey includes roles as a MuLearn Intern, Union Chairman at SNGIST, and CEO at SNGIST IEDC, where I've driven innovation and led digital transformations. As a leader, I've empowered teams towards excellence and fostered an entrepreneurial spirit. I'm keen to connect with like-minded tech enthusiasts and visionaries.",
     },
   },
   stack: {
     title: { es: "Tech Stack", en: "Tech Stack" },
     hint: {
-      es: "(hint: pasa el ratón por una tecla)",
+      es: "(hint: pasa el ratÃ³n por una tecla)",
       en: "(hint: hover over a key)",
     },
     hintMobile: {
@@ -78,18 +92,18 @@ export const DICT = {
   },
   projects: {
     kicker: { es: "proyecto", en: "project" },
-    viewMore: { es: "Ver más", en: "View more" },
+    viewMore: { es: "Ver mÃ¡s", en: "View more" },
     openSite: { es: "Abrir sitio", en: "Visit site" },
-    viewCode: { es: "Ver código", en: "View code" },
+    viewCode: { es: "Ver cÃ³digo", en: "View code" },
     close: { es: "Cerrar", en: "Close" },
     stackLabel: { es: "Stack", en: "Stack" },
     overview: { es: "Resumen", en: "Overview" },
   },
   contact: {
     kicker: { es: "contacto", en: "contact" },
-    title: { es: "¿Hablamos?", en: "Let's talk?" },
+    title: { es: "Â¿Hablamos?", en: "Let's talk?" },
     body: {
-      es: "Si lo que has visto te interesa, el teclado ya está listo para recibir el primer mensaje.",
+      es: "Si lo que has visto te interesa, el teclado ya estÃ¡ listo para recibir el primer mensaje.",
       en: "If what you've seen interests you, the keyboard is ready for the first message.",
     },
     copyEmail: { es: "Copiar email", en: "Copy email" },
@@ -98,22 +112,22 @@ export const DICT = {
     linkedin: { es: "LinkedIn", en: "LinkedIn" },
     emailToast: { es: "Email copiado", en: "Email copied" },
     footer: {
-      es: "© 2026 Txema Albero. Todos los derechos reservados.",
-      en: "© 2026 Txema Albero. All rights reserved.",
+      es: "Â© 2026 Suresh Mahima Kumar Tirumala. Todos los derechos reservados.",
+      en: "Â© 2026 Suresh Mahima Kumar Tirumala. All rights reserved.",
     },
   },
   keyboard: {
     taglines: {
       javascript: {
-        es: "Donde empezó todo. Sigue aquí, sigue mandando.",
+        es: "Donde empezÃ³ todo. Sigue aquÃ­, sigue mandando.",
         en: "Where it all started. Still here, still in charge.",
       },
       typescript: {
-        es: "Mismo JS, con cinturón de seguridad.",
+        es: "Mismo JS, con cinturÃ³n de seguridad.",
         en: "Same JS, with a seatbelt.",
       },
       html5: {
-        es: "Los huesos de cualquier página.",
+        es: "Los huesos de cualquier pÃ¡gina.",
         en: "The bones of any page.",
       },
       css: {
@@ -121,11 +135,11 @@ export const DICT = {
         en: "What separates good from beautiful.",
       },
       tailwindcss: {
-        es: "Utility-first. Diseño en el HTML.",
+        es: "Utility-first. DiseÃ±o en el HTML.",
         en: "Utility-first. Design inside the HTML.",
       },
       python: {
-        es: "Se lee como inglés, escala como cohete.",
+        es: "Se lee como inglÃ©s, escala como cohete.",
         en: "Reads like English, scales like a rocket.",
       },
       react: {
@@ -137,7 +151,7 @@ export const DICT = {
         en: "React all grown up: routing, SSR, edge.",
       },
       vuedotjs: {
-        es: "El frontend más relajado.",
+        es: "El frontend mÃ¡s relajado.",
         en: "The most relaxed frontend.",
       },
       nodedotjs: {
@@ -145,7 +159,7 @@ export const DICT = {
         en: "JavaScript on the server.",
       },
       php: {
-        es: "Mueve más web de la que crees.",
+        es: "Mueve mÃ¡s web de la que crees.",
         en: "Runs more of the web than you think.",
       },
       odoo: {
@@ -157,11 +171,11 @@ export const DICT = {
         en: "The boring database that always works.",
       },
       docker: {
-        es: "Igual en mi máquina, igual en producción.",
+        es: "Igual en mi mÃ¡quina, igual en producciÃ³n.",
         en: "Same on my machine, same in production.",
       },
       git: {
-        es: "Historia y máquina del tiempo del código.",
+        es: "Historia y mÃ¡quina del tiempo del cÃ³digo.",
         en: "History and a time machine for your code.",
       },
     },
@@ -180,3 +194,4 @@ export function translate(path: string, lang: Lang): string {
   if (isLeaf(ref)) return ref[lang] ?? ref.es ?? path;
   return path;
 }
+
