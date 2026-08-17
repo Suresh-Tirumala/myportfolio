@@ -167,31 +167,6 @@ const projects: Project[] = [
   },
 ];
 
-const experiences: Array<{
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  summary: string;
-  bullets: string[];
-  stack: string[];
-}> = [
-  {
-    role: "Tech Lead",
-    company: "Activalink",
-    period: "2023 — Present",
-    location: "Alcoy, Spain",
-    summary: "Activalink implements and customises ERPs for SMBs and large companies. I build custom modules and personalisations on top of Odoo, bespoke integrations, and end-to-end implementation projects. I lead a team of 3 developers: our work is measured in time saved and errors avoided.",
-    bullets: [
-      "Invoice OCR in Odoo — from 4 h/day down to 30 min (-87%).",
-      "Interactive logistics map — -60% tracking errors.",
-      "Automated reconciliation — monthly close from 3 days to half a day.",
-      "Financial dashboards — early detection of uninvoiced orders.",
-    ],
-    stack: ["Odoo", "Python", "PostgreSQL", "Next.js", "TypeScript", "Docker"],
-  },
-];
-
 function HeroWord({
   text,
   delay,
@@ -426,86 +401,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Experience — title is sticky at top-24 (feels anchored) but sits
-              BEHIND the cards (z-0 vs. card wrapper's z-10), so as you scroll
-              the card slides over the title. The section has no extra filler
-              beyond the cards, so when you scroll past the last card the
-              section ends and the title un-pins and exits the viewport at the
-              same time — giving the "anchored then both disappear" feel. */}
-          <section
-            data-kb-section="experience"
-            className="relative p-6 sm:p-10 md:p-14 pb-24"
-          >
-            <div className="sticky top-24 sm:top-28 text-center mb-12 sm:mb-16 z-0">
-              <Reveal>
-                <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
-                  Experience
-                </h2>
-              </Reveal>
-              <Reveal delay={120}>
-                <p className="mt-3 text-sm sm:text-base text-ice-300">
-                  My professional journey.
-                </p>
-              </Reveal>
-            </div>
 
-            <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-              {experiences.map((exp, idx) => (
-                <Reveal
-                  key={`${exp.company}-${idx}`}
-                  delay={idx * 120}
-                  as="article"
-                  className="relative rounded-2xl bg-ink-1/75 backdrop-blur-md border border-ink-3 p-6 sm:p-8 md:p-10 pointer-events-auto shadow-[0_8px_40px_-20px_rgba(0,0,0,0.6)]"
-                >
-                  <header className="flex flex-wrap items-start justify-between gap-3 mb-5">
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-ice-50 tracking-tight">
-                        {exp.role}
-                      </h3>
-                      <p className="text-ice-400 font-medium mt-1">
-                        {exp.company}
-                        <span className="text-ice-500/80 font-normal">
-                          {" · "}
-                          {exp.location}
-                        </span>
-                      </p>
-                    </div>
-                    <span className="font-mono text-xs text-ice-100 px-3 py-1 rounded-full border border-ice-700/70 bg-ink-2/60 whitespace-normal break-words">
-                      {exp.period}
-                    </span>
-                  </header>
-
-                  <p className="text-ice-200 leading-relaxed mb-5">
-                    {exp.summary}
-                  </p>
-
-                  <ul className="space-y-2.5 mb-6">
-                    {exp.bullets.map((b, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-3 text-ice-100 leading-relaxed"
-                      >
-                        <span className="mt-[0.65em] flex-none w-1.5 h-1.5 rounded-full bg-ice-400" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-1.5">
-                    {exp.stack.map((s) => (
-                      <span
-                        key={s}
-                        data-cursor="hover"
-                        className="frost-chip"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </section>
 
           {/* Projects */}
           {projects.map((p) => (
