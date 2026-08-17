@@ -401,7 +401,24 @@ export default function Home() {
             </div>
           </section>
 
-
+          {/* Experience */}
+          <section
+            data-kb-section="experience"
+            className="relative p-6 sm:p-10 md:p-14 pb-24"
+          >
+            <div className="sticky top-24 sm:top-28 text-center mb-12 sm:mb-16 z-0">
+              <Reveal>
+                <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
+                  Experience
+                </h2>
+              </Reveal>
+              <Reveal delay={120}>
+                <p className="mt-3 text-sm sm:text-base text-ice-300">
+                  My professional journey.
+                </p>
+              </Reveal>
+            </div>
+          </section>
 
           {/* Projects */}
           {projects.map((p) => (
