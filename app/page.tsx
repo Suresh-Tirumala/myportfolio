@@ -291,7 +291,7 @@ export default function Home() {
                 style={{ ["--d" as string]: "700ms" }}
               >
                 <a
-                  href="/Suresh_Tirumala_Cornerstone_JuniorEngineer_Resume.docx"
+                  href="/sureshtirumala.docx"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="hover"
