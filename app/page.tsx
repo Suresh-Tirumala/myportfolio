@@ -572,19 +572,23 @@ export default function Home() {
             data-kb-section="hackathons"
             className="relative p-6 sm:p-10 md:p-14"
           >
-            <div className="sticky top-24 sm:top-28 text-center mb-12 sm:mb-16 z-0">
-              <Reveal>
-                <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
-                  Hackathons
-                </h2>
-              </Reveal>
-              <Reveal delay={120}>
-                <p className="mt-3 text-sm sm:text-base text-ice-300">
-                  Building under pressure, shipping on time.
-                </p>
-              </Reveal>
-            </div>
-            <StackCards items={hackathons} />
+            <StackCards
+              items={hackathons}
+              heading={
+                <>
+                  <Reveal>
+                    <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
+                      Hackathons
+                    </h2>
+                  </Reveal>
+                  <Reveal delay={120}>
+                    <p className="mt-3 text-sm sm:text-base text-ice-300">
+                      Building under pressure, shipping on time.
+                    </p>
+                  </Reveal>
+                </>
+              }
+            />
           </section>
 
           {/* Contact — copy pinned to the left so the (large, hero-posed)

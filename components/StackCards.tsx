@@ -31,21 +31,28 @@ function stackPose(index: number) {
   };
 }
 
-export default function StackCards({ items }: { items: StackItem[] }) {
+export default function StackCards({
+  items,
+  heading,
+}: {
+  items: StackItem[];
+  heading?: React.ReactNode;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deckRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const container = containerRef.current;
     const deck = deckRef.current;
+    const headingEl = headingRef.current;
     const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
     if (!container || !deck || cards.length === 0) return;
 
     const ctx = gsap.context(() => {
       const deckH = deck.offsetHeight;
-      const heading = container.querySelector<HTMLElement>("div");
-      const headingH = heading ? heading.offsetHeight : 0;
+      const headingH = headingEl ? headingEl.offsetHeight : 0;
       const available = window.innerHeight - headingH;
       const centerY = (available - deckH) / 2;
 
@@ -119,6 +126,11 @@ export default function StackCards({ items }: { items: StackItem[] }) {
 
   return (
     <div ref={containerRef} className="relative">
+      {heading && (
+        <div ref={headingRef} className="sticky top-24 sm:top-28 text-center mb-12 sm:mb-16 z-0">
+          {heading}
+        </div>
+      )}
       <div
         ref={deckRef}
         className="relative w-full"
