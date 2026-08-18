@@ -177,6 +177,13 @@ const hackathons: StackItem[] = [
     body: "Built an AI-powered solution demonstrating creativity, innovation, and problem-solving excellence. Certificate of Participation signed by Ankush Singla.",
     image: "/hackathon-certificate.png",
   },
+  {
+    num: "02",
+    title: "GenAI Forge",
+    lede: "FutureSkills Prime × nasscom × Ministry of Electronics & IT, Government of India.",
+    body: "Participated in the GenAI Forge Hackathon under the Government of India's digital-skilling initiative. Certificate of Participation issued by Dr. Abhilasha Gaur, CEO of nasscom IT-ITeS Sector Skills Council.",
+    image: "/nasscom-certificate.png",
+  },
 ];
 
 function HeroWord({
