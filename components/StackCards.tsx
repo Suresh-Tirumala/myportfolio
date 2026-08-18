@@ -164,12 +164,12 @@ export default function StackCards({
               </p>
             </div>
             <div className="relative min-h-0 flex justify-end items-stretch">
-              <div className="w-[min(100%,260px)] h-full aspect-[3/4] overflow-hidden bg-ink-0 rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
+              <div className="w-[min(100%,300px)] h-full overflow-hidden bg-ink-0 rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
                 {item.image && (
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain p-2"
                   />
                 )}
               </div>

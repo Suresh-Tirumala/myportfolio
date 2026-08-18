@@ -177,25 +177,6 @@ const hackathons: StackItem[] = [
     body: "Built an AI-powered solution demonstrating creativity, innovation, and problem-solving excellence. Certificate of Participation signed by Ankush Singla.",
     image: "/hackathon-certificate.png",
   },
-  {
-    num: "02",
-    title: "Redrob AI Discovery",
-    lede: "Redrob Intelligent Candidate Discovery Challenge (v4).",
-    body: "Built a deterministic ranking engine to find top Senior AI Engineers from 100K candidates. Defeated synthetic data artifacts with multi-component validation under a 5-minute CPU-only constraint.",
-    image: "/hackathon-certificate.png",
-  },
-  {
-    num: "03",
-    title: "DevConnect Jam",
-    lede: "Shipped a real-time collaborative whiteboard in 24 hours.",
-    body: "WebSocket-based canvas with CRDT conflict resolution. Used by 200+ participants during the event.",
-  },
-  {
-    num: "04",
-    title: "GreenByte 2024",
-    lede: "Carbon footprint tracker with gamification.",
-    body: "API integrations with transit and energy providers, league-based competition. Won Sustainability Award.",
-  },
 ];
 
 function HeroWord({
