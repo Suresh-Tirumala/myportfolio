@@ -15,11 +15,11 @@ export interface StackItem {
 }
 
 const CARD_TONES = [
-  "border-ice-500/20",
-  "border-ice-400/20",
-  "border-ice-300/20",
-  "border-ice-600/20",
-  "border-ice-500/20",
+  "bg-ink-2 border-ice-500/20",
+  "bg-ink-1 border-ice-400/20",
+  "bg-ink-3 border-ice-300/20",
+  "bg-ink-2 border-ice-600/20",
+  "bg-ink-1 border-ice-500/20",
 ];
 
 const PEEK = 42;
