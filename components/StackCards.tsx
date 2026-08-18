@@ -164,7 +164,7 @@ export default function StackCards({
               </p>
             </div>
             <div className="relative min-h-0 flex justify-end items-stretch">
-              <div className="w-[min(100%,300px)] h-full overflow-hidden rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
+              <div className="w-[min(100%,380px)] h-full overflow-hidden rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
                 {item.image && (
                   <img
                     src={item.image}
