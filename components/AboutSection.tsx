@@ -89,19 +89,18 @@ const AboutSection = () => {
                             className="px-6 sm:px-8 w-[95%] md:max-w-3xl py-6 z-[20] border mb-[20px] border-ice-400/30 bg-ink-1/60 backdrop-blur-md transition-colors duration-600 rounded-2xl shadow-[0_8px_40px_-20px_rgba(0,0,0,0.6)]"
                         >
                             <p className="text-sm sm:text-base md:text-lg text-ice-200 transition-colors duration-600 leading-relaxed text-center sm:text-justify">
-                                As a passionate Full Stack Developer with
-                                expertise in React, TypeScript, Django, REST,
-                                HTML, and CSS, I excel in crafting seamless
-                                digital experiences. My journey includes roles
-                                as a MuLearn Intern, Union Chairman at SNGIST,
-                                and CEO at SNGIST IEDC, where I've driven
-                                innovation and led digital transformations. As a
-                                leader, I've empowered teams towards
-                                excellence and fostered an entrepreneurial
-                                spirit. I'm keen to connect with
-                                like-minded tech enthusiasts and visionaries to
-                                explore new opportunities and push the
-                                boundaries of innovation.
+                                I&apos;m Suresh, a software engineer completing my
+                                Master of Computer Applications. I like building
+                                things end-to-end — from the logic behind the
+                                scenes to the experience someone actually uses.
+                                Lately I&apos;ve been drawn to weaving AI into
+                                real products in useful, practical ways rather
+                                than just for the sake of it. I picked up most
+                                of my skills through hands-on internships and
+                                personal projects, and I care more about writing
+                                things that hold up over time than just getting
+                                something to work. I&apos;m currently looking
+                                for a team where I can keep learning by building.
                             </p>
                         </motion.div>
                     )}
@@ -110,7 +109,7 @@ const AboutSection = () => {
             
             <div className="absolute z-[20] bottom-8 md:bottom-[40px] px-[5px]">
                 <div className="text-[11px] uppercase tracking-[0.25em] text-center text-ice-400 transition-colors duration-600">
-                    Shaping Tomorrow with Code and Creativity
+                    Software engineer who enjoys turning ideas into working products.
                 </div>
             </div>
 
