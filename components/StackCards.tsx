@@ -15,11 +15,11 @@ export interface StackItem {
 }
 
 const CARD_TONES = [
-  "bg-ink-2 border-ice-500/20",
-  "bg-ink-1 border-ice-400/20",
-  "bg-ink-3 border-ice-300/20",
-  "bg-ink-2 border-ice-600/20",
-  "bg-ink-1 border-ice-500/20",
+  "border-ice-500/20",
+  "border-ice-400/20",
+  "border-ice-300/20",
+  "border-ice-600/20",
+  "border-ice-500/20",
 ];
 
 const PEEK = 42;
@@ -164,7 +164,7 @@ export default function StackCards({
               </p>
             </div>
             <div className="relative min-h-0 flex justify-end items-stretch">
-              <div className="w-[min(100%,300px)] h-full overflow-hidden bg-ink-0 rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
+              <div className="w-[min(100%,300px)] h-full overflow-hidden rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
                 {item.image && (
                   <img
                     src={item.image}
