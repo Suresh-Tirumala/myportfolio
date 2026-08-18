@@ -172,9 +172,10 @@ const projects: Project[] = [
 const hackathons: StackItem[] = [
   {
     num: "01",
-    title: "HackFusion 2025",
-    lede: "Built an AI-powered code review tool in 36 hours.",
-    body: "Real-time static analysis with GPT-4 integration, deployed live at the event. Won Best AI Hack among 120+ teams.",
+    title: "Vibe2Ship",
+    lede: "India's Biggest Vibe Coding Hackathon by Coding Ninjas × Google for Developers.",
+    body: "Participated and demonstrated creativity, innovation, and problem-solving excellence in building AI-powered solutions. Certificate of Participation signed by Ankush Singla.",
+    image: "/hackathon-certificate.png",
   },
   {
     num: "02",
