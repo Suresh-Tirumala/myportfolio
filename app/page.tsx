@@ -179,9 +179,9 @@ const hackathons: StackItem[] = [
   },
   {
     num: "02",
-    title: "HealthHack '24",
-    lede: "Designed a patient triage chatbot for rural clinics.",
-    body: "NLP-driven symptom assessment with multilingual support. Reached top 5 finalists out of 80 teams.",
+    title: "Redrob AI Discovery",
+    lede: "Intelligent Candidate Discovery Challenge (v4) — finding top Senior AI Engineers from 100K candidates.",
+    body: "Built a deterministic ranking engine defeating synthetic data artifacts under a 5-min CPU-only constraint. Multi-component validation with 4 weighted scoring dimensions: Skill Match (45%), Career Relevance (25%), Behavioral Availability (20%), and Contextual Fit (10%). Runtime ~90-120s for 100K records, Python Standard Library only.",
   },
   {
     num: "03",
