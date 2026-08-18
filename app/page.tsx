@@ -11,6 +11,8 @@ import SeasonPicker from "@/components/SeasonPicker";
 import ProjectModal, {
   type ProjectDetail,
 } from "@/components/ProjectModal";
+import StackCards from "@/components/StackCards";
+import type { StackItem } from "@/components/StackCards";
 import AboutSection from "@/components/AboutSection";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { SKILLS_FLAT, TAGLINES } from "@/lib/skills";
@@ -164,6 +166,33 @@ const projects: Project[] = [
     highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "nodedotjs"],
     align: "left",
     section: "project5",
+  },
+];
+
+const hackathons: StackItem[] = [
+  {
+    num: "01",
+    title: "HackFusion 2025",
+    lede: "Built an AI-powered code review tool in 36 hours.",
+    body: "Real-time static analysis with GPT-4 integration, deployed live at the event. Won Best AI Hack among 120+ teams.",
+  },
+  {
+    num: "02",
+    title: "HealthHack '24",
+    lede: "Designed a patient triage chatbot for rural clinics.",
+    body: "NLP-driven symptom assessment with multilingual support. Reached top 5 finalists out of 80 teams.",
+  },
+  {
+    num: "03",
+    title: "DevConnect Jam",
+    lede: "Shipped a real-time collaborative whiteboard in 24 hours.",
+    body: "WebSocket-based canvas with CRDT conflict resolution. Used by 200+ participants during the event.",
+  },
+  {
+    num: "04",
+    title: "GreenByte 2024",
+    lede: "Carbon footprint tracker with gamification.",
+    body: "API integrations with transit and energy providers, league-based competition. Won Sustainability Award.",
   },
 ];
 
@@ -421,6 +450,24 @@ export default function Home() {
           </section>
 
           {/* Projects */}
+          <section
+            data-kb-section="projects"
+            className="relative p-6 sm:p-10 md:p-14"
+          >
+            <div className="sticky top-24 sm:top-28 text-center mb-12 sm:mb-16 z-0">
+              <Reveal>
+                <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
+                  My Projects
+                </h2>
+              </Reveal>
+              <Reveal delay={120}>
+                <p className="mt-3 text-sm sm:text-base text-ice-300">
+                  Selected works I&apos;ve built.
+                </p>
+              </Reveal>
+            </div>
+          </section>
+
           {projects.map((p) => (
             <section
               key={p.num}
@@ -519,6 +566,26 @@ export default function Home() {
               </div>
             </section>
           ))}
+
+          {/* Hackathons */}
+          <section
+            data-kb-section="hackathons"
+            className="relative p-6 sm:p-10 md:p-14"
+          >
+            <div className="sticky top-24 sm:top-28 text-center mb-12 sm:mb-16 z-0">
+              <Reveal>
+                <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-[-0.03em] text-ice-50 leading-[0.95]">
+                  Hackathons
+                </h2>
+              </Reveal>
+              <Reveal delay={120}>
+                <p className="mt-3 text-sm sm:text-base text-ice-300">
+                  Building under pressure, shipping on time.
+                </p>
+              </Reveal>
+            </div>
+            <StackCards items={hackathons} />
+          </section>
 
           {/* Contact — copy pinned to the left so the (large, hero-posed)
               keyboard on the right has room to bob its random keys. */}
