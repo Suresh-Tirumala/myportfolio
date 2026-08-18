@@ -174,14 +174,15 @@ const hackathons: StackItem[] = [
     num: "01",
     title: "Vibe2Ship",
     lede: "India's Biggest Vibe Coding Hackathon by Coding Ninjas × Google for Developers.",
-    body: "Participated and demonstrated creativity, innovation, and problem-solving excellence in building AI-powered solutions. Certificate of Participation signed by Ankush Singla.",
+    body: "Built an AI-powered solution demonstrating creativity, innovation, and problem-solving excellence. Certificate of Participation signed by Ankush Singla.",
     image: "/hackathon-certificate.png",
   },
   {
     num: "02",
     title: "Redrob AI Discovery",
-    lede: "Intelligent Candidate Discovery Challenge (v4) — finding top Senior AI Engineers from 100K candidates.",
-    body: "Built a deterministic ranking engine defeating synthetic data artifacts under a 5-min CPU-only constraint. Multi-component validation with 4 weighted scoring dimensions: Skill Match (45%), Career Relevance (25%), Behavioral Availability (20%), and Contextual Fit (10%). Runtime ~90-120s for 100K records, Python Standard Library only.",
+    lede: "Redrob Intelligent Candidate Discovery Challenge (v4).",
+    body: "Built a deterministic ranking engine to find top Senior AI Engineers from 100K candidates. Defeated synthetic data artifacts with multi-component validation under a 5-minute CPU-only constraint.",
+    image: "/hackathon-certificate.png",
   },
   {
     num: "03",
