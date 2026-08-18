@@ -43,10 +43,13 @@ export default function StackCards({ items }: { items: StackItem[] }) {
     if (!container || !deck || cards.length === 0) return;
 
     const ctx = gsap.context(() => {
+      const deckH = deck.offsetHeight;
+      const centerY = (window.innerHeight - deckH) / 2;
+
       cards.forEach((card, i) => {
         gsap.set(card, {
           zIndex: cards.length - i,
-          y: window.innerHeight * 0.72 + i * PEEK,
+          y: centerY + i * PEEK,
           scale: stackPose(i).scale * 0.9,
           rotate: 0,
           transformOrigin: "50% 0%",
