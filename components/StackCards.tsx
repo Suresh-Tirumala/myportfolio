@@ -44,7 +44,10 @@ export default function StackCards({ items }: { items: StackItem[] }) {
 
     const ctx = gsap.context(() => {
       const deckH = deck.offsetHeight;
-      const centerY = (window.innerHeight - deckH) / 2;
+      const heading = container.querySelector<HTMLElement>("div");
+      const headingH = heading ? heading.offsetHeight : 0;
+      const available = window.innerHeight - headingH;
+      const centerY = (available - deckH) / 2;
 
       cards.forEach((card, i) => {
         gsap.set(card, {
