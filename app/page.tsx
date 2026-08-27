@@ -219,15 +219,17 @@ export default function Home() {
         )}
 
         {/* Header */}
-        
-        {/* Header */}
-        <header className="fixed top-0 inset-x-0 z-50 px-6 sm:px-10 md:px-14 py-5 flex items-center justify-between pointer-events-none">
-          <div className="flex items-center gap-3 pointer-events-auto">
+        <header className="fixed top-0 inset-x-0 z-50 px-4 sm:px-10 md:px-14 py-4 sm:py-5 flex items-center justify-between pointer-events-none">
+          <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto">
             <span
               data-cursor="hover"
               className="text-sm font-semibold tracking-tight text-ice-100 whitespace-normal break-words"
             >
               Suresh Tirumala
+            </span>
+            {/* Status pill: compact dot on mobile, full pill on md+ */}
+            <span className="inline-flex md:hidden">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(110,231,183,0.7)] animate-pulse" aria-label="Open to opportunities" />
             </span>
             <span className="hidden md:inline-flex">
               <span className="status-pill">Open to opportunities</span>
@@ -235,21 +237,31 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-2 pointer-events-auto">
             <SeasonPicker />
-            <span className="hidden md:inline-flex">
+            {/* GitHub: icon-only on mobile, icon+label on md+ */}
             <a
               href="https://github.com/Suresh-Tirumala"
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="hover"
-              className="frost-btn !py-1.5 !px-3 !text-xs"
+              className="frost-icon md:hidden"
+              aria-label="GitHub"
+            >
+              <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden>
+                <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+            </a>
+            <a
+              href="https://github.com/Suresh-Tirumala"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="hover"
+              className="hidden md:inline-flex frost-btn !py-1.5 !px-3 !text-xs"
             >
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden>
                 <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
               </svg>
               <span>GitHub</span>
             </a>
-            </span>
-            
           </div>
         </header>
 
@@ -275,7 +287,7 @@ export default function Home() {
               >
                 Hi, I am
               </p>
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold tracking-[-0.03em] text-ice-50 leading-[0.92] whitespace-normal break-words">
+              <h1 className="text-[2.6rem] xs:text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-[8.5rem] font-bold tracking-[-0.03em] text-ice-50 leading-[0.92] break-words hyphens-auto">
                 <HeroWord text="Suresh" delay={120} />
                 <br />
                 <HeroWord text="Mahima Kumar Tirumala" delay={260} className="text-ice-400" />
@@ -386,37 +398,35 @@ export default function Home() {
                 </Reveal>
               </div>
 
-              {/* Mobile skills grid (recovers the hover interaction as static
-                  content the keyboard can't surface on touch). */}
-              {isMobile && (
-                <div className="md:hidden mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 pointer-events-auto">
-                  {SKILLS_FLAT.map((s) => (
-                    <div
-                      key={s.slug}
-                      className="flex items-start gap-3 rounded-xl bg-ink-1/70 backdrop-blur-sm border border-ink-3 p-4"
+              {/* Mobile skills grid — always rendered; hidden via CSS on md+
+                  so there's no hydration flash from the JS isMobile check. */}
+              <div className="md:hidden mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 pointer-events-auto">
+                {SKILLS_FLAT.map((s) => (
+                  <div
+                    key={s.slug}
+                    className="flex items-start gap-3 rounded-xl bg-ink-1/70 backdrop-blur-sm border border-ink-3 p-4"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="22"
+                      height="22"
+                      fill={`#${s.hex}`}
+                      className="flex-none mt-0.5"
+                      aria-hidden
                     >
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="22"
-                        height="22"
-                        fill={`#${s.hex}`}
-                        className="flex-none mt-0.5"
-                        aria-hidden
-                      >
-                        <path d={s.path} />
-                      </svg>
-                      <div>
-                        <p className="text-ice-50 font-medium text-sm">
-                          {s.title}
-                        </p>
-                        <p className="text-ice-400 text-xs mt-0.5 leading-snug">
-                          {TAGLINES[s.slug as keyof typeof TAGLINES] ?? ""}
-                        </p>
-                      </div>
+                      <path d={s.path} />
+                    </svg>
+                    <div>
+                      <p className="text-ice-50 font-medium text-sm">
+                        {s.title}
+                      </p>
+                      <p className="text-ice-400 text-xs mt-0.5 leading-snug">
+                        {TAGLINES[s.slug as keyof typeof TAGLINES] ?? ""}
+                      </p>
                     </div>
-                  ))}
-                </div>
-              )}
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -463,7 +473,7 @@ export default function Home() {
               key={p.num}
               data-kb-section={p.section}
               data-kb-highlights={(p.highlights ?? []).join(",")}
-              className="relative py-20 md:min-h-screen flex items-center p-6 sm:p-10 md:p-14 overflow-hidden"
+              className="relative py-16 md:py-20 md:min-h-screen flex items-center p-6 sm:p-10 md:p-14 overflow-hidden"
             >
               <span
                 aria-hidden
@@ -474,11 +484,12 @@ export default function Home() {
                 {p.num}
               </span>
 
+              {/* On mobile always left-align; on md+ apply the right-alignment */}
               <div
                 className={
                   p.align === "left"
-                    ? "max-w-xl relative"
-                    : "max-w-xl relative md:ml-auto md:text-right md:mr-16 lg:mr-24"
+                    ? "w-full max-w-xl relative"
+                    : "w-full max-w-xl relative md:ml-auto md:mr-16 lg:mr-24"
                 }
               >
                 <Reveal>
@@ -504,6 +515,7 @@ export default function Home() {
                   </p>
                 </Reveal>
                 <Reveal delay={260}>
+                  {/* Stack chips always left-aligned on mobile, right on md+ for right-align projects */}
                   <div
                     className={
                       p.align === "right"
@@ -523,6 +535,7 @@ export default function Home() {
                   </div>
                 </Reveal>
                 <Reveal delay={320}>
+                  {/* Button always left-aligned on mobile, right on md+ for right-align projects */}
                   <div
                     className={
                       p.align === "right"
@@ -546,6 +559,7 @@ export default function Home() {
                         stroke="currentColor"
                         strokeWidth="2"
                         strokeLinecap="round"
+
                         aria-hidden
                       >
                         <path d="M5 12h14M13 5l7 7-7 7" />

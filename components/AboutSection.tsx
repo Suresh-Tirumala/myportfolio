@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { slideInFromBottom, slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
@@ -19,11 +19,11 @@ const AboutSection = () => {
     return (
         <section
             id="about"
-            className="flex flex-col md:flex-row relative items-center justify-center min-h-screen w-full h-full overflow-hidden px-6 sm:px-10 md:px-14 py-24"
+            className="flex flex-col relative items-center justify-center min-h-screen w-full h-full overflow-hidden px-6 sm:px-10 md:px-14 py-24"
         >
             <StarsCanvas />
             
-            <div className="md:absolute w-auto h-auto md:top-[120px] z-[5]">
+            <div className="w-auto h-auto z-[5] mb-6 sm:mb-10">
                 <InView triggerOnce={false}>
                     {({ inView, ref }) => (
                         <motion.div
@@ -42,7 +42,7 @@ const AboutSection = () => {
                 </InView>
             </div>
 
-            <div className="flex flex-col items-center justify-start relative mt-16 md:mt-[150px] z-[20] w-auto h-auto">
+            <div className="flex flex-col items-center justify-start relative z-[20] w-full max-w-3xl">
                 <InView triggerOnce={false}>
                     {({ inView, ref }) => (
                         <motion.div
@@ -50,14 +50,14 @@ const AboutSection = () => {
                             initial="hidden"
                             animate={inView ? "visible" : "hidden"}
                             variants={slideInFromLeft(0.5)}
-                            className="flex flex-col items-center w-auto h-auto rounded-full overflow-hidden ring-[3px] ring-ice-500/30 bg-gradient-to-r from-ice-600 to-ice-400 transition-colors duration-600 mb-8"
+                            className="flex flex-col items-center w-auto h-auto rounded-full overflow-hidden ring-[3px] ring-ice-500/30 bg-gradient-to-r from-ice-600 to-ice-400 transition-colors duration-600 mb-6"
                         >
                             <img
                                 src="/profile.jpg"
                                 alt="profile placeholder"
                                 width={200}
                                 height={200}
-                                className="object-cover md:w-[220px] md:h-[220px]"
+                                className="object-cover w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] md:w-[220px] md:h-[220px]"
                             />
                         </motion.div>
                     )}
@@ -70,9 +70,9 @@ const AboutSection = () => {
                             initial="hidden"
                             animate={inView ? "visible" : "hidden"}
                             variants={slideInFromRight(0.5)}
-                            className="px-5 py-2.5 z-[20] border mb-6 border-ice-400/30 bg-ink-1/60 backdrop-blur-md transition-colors duration-600 rounded-xl shadow-[0_8px_40px_-20px_rgba(0,0,0,0.6)]"
+                            className="px-5 py-2.5 z-[20] border mb-5 border-ice-400/30 bg-ink-1/60 backdrop-blur-md transition-colors duration-600 rounded-xl shadow-[0_8px_40px_-20px_rgba(0,0,0,0.6)]"
                         >
-                            <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-ice-50 transition-colors duration-600">
+                            <h1 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-ice-50 transition-colors duration-600">
                                 Suresh Mahima Kumar Tirumala
                             </h1>
                         </motion.div>
@@ -86,7 +86,7 @@ const AboutSection = () => {
                             initial="hidden"
                             animate={inView ? "visible" : "hidden"}
                             variants={slideInFromBottom}
-                            className="px-6 sm:px-8 w-[95%] md:max-w-3xl py-6 z-[20] border mb-[20px] border-ice-400/30 bg-ink-1/60 backdrop-blur-md transition-colors duration-600 rounded-2xl shadow-[0_8px_40px_-20px_rgba(0,0,0,0.6)]"
+                            className="px-5 sm:px-8 w-full py-6 z-[20] border mb-6 border-ice-400/30 bg-ink-1/60 backdrop-blur-md transition-colors duration-600 rounded-2xl shadow-[0_8px_40px_-20px_rgba(0,0,0,0.6)]"
                         >
                             <p className="text-sm sm:text-base md:text-lg text-ice-200 transition-colors duration-600 leading-relaxed text-center sm:text-justify">
                                 I&apos;m Suresh, a software engineer completing my
@@ -105,11 +105,12 @@ const AboutSection = () => {
                         </motion.div>
                     )}
                 </InView>
-            </div>
-            
-            <div className="absolute z-[20] bottom-8 md:bottom-[40px] px-[5px]">
-                <div className="text-[11px] uppercase tracking-[0.25em] text-center text-ice-400 transition-colors duration-600">
-                    Software engineer who enjoys turning ideas into working products.
+
+                {/* Bottom tagline — now in normal document flow so it never overlaps on small screens */}
+                <div className="w-full text-center pb-2 z-[20]">
+                    <div className="text-[11px] uppercase tracking-[0.25em] text-ice-400 transition-colors duration-600">
+                        Software engineer who enjoys turning ideas into working products.
+                    </div>
                 </div>
             </div>
 
@@ -130,5 +131,3 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
-
-

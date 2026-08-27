@@ -141,7 +141,7 @@ export default function StackCards({
           <div
             key={item.num}
             ref={(el) => { cardRefs.current[i] = el; }}
-            className={`absolute inset-0 grid grid-cols-[1.15fr_0.85fr] gap-[clamp(1rem,3vw,2.5rem)] p-[clamp(1.25rem,3vw,2.25rem)] rounded-sm border ${CARD_TONES[i % CARD_TONES.length]}`}
+            className={`absolute inset-0 flex flex-col sm:grid sm:grid-cols-[1.15fr_0.85fr] gap-[clamp(0.75rem,3vw,2.5rem)] p-[clamp(1rem,3vw,2.25rem)] rounded-sm border ${CARD_TONES[i % CARD_TONES.length]}`}
             style={{
               willChange: "transform",
               transformOrigin: "50% 0%",
@@ -149,21 +149,22 @@ export default function StackCards({
           >
             <div className="flex flex-col min-w-0">
               <div className="flex justify-between items-start gap-4 mb-2.5">
-                <h3 className="font-[family-name:var(--font-editorial)] text-[clamp(2rem,4.5vw,3.4rem)] leading-none tracking-[-0.02em] text-ice-50">
+                <h3 className="font-[family-name:var(--font-editorial)] text-[clamp(1.4rem,4.5vw,3.4rem)] leading-none tracking-[-0.02em] text-ice-50">
                   {item.title}
                 </h3>
-                <span className="font-[family-name:var(--font-editorial)] text-[clamp(1.5rem,3vw,2.25rem)] opacity-35 leading-none shrink-0 text-ice-300">
+                <span className="font-[family-name:var(--font-editorial)] text-[clamp(1.2rem,3vw,2.25rem)] opacity-35 leading-none shrink-0 text-ice-300">
                   {item.num}
                 </span>
               </div>
-              <p className="text-[clamp(0.85rem,1.4vw,1rem)] leading-[1.45] max-w-[28ch] opacity-75 mb-auto text-ice-200">
+              <p className="text-[clamp(0.78rem,1.4vw,1rem)] leading-[1.45] max-w-[28ch] opacity-75 mb-auto text-ice-200">
                 {item.lede}
               </p>
-              <p className="text-[clamp(0.8rem,1.2vw,0.92rem)] leading-[1.55] max-w-[36ch] opacity-85 mt-6 mb-5 text-ice-300">
+              <p className="text-[clamp(0.75rem,1.2vw,0.92rem)] leading-[1.55] max-w-[36ch] opacity-85 mt-4 mb-3 sm:mt-6 sm:mb-5 text-ice-300">
                 {item.body}
               </p>
             </div>
-            <div className="relative min-h-0 flex justify-end items-stretch">
+            {/* Image col: hidden on very small screens, shows beside text on sm+ */}
+            <div className="hidden sm:flex relative min-h-0 justify-end items-stretch">
               <div className="w-[min(100%,380px)] h-full overflow-hidden rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
                 {item.image && (
                   <img

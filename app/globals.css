@@ -129,6 +129,8 @@
   --color-ice-700: var(--ice-700);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  /* Custom xs breakpoint for very small phones (< 480px) */
+  --breakpoint-xs: 30rem; /* 480px */
 }
 
 body {
@@ -713,4 +715,40 @@ body {
 .toast[data-show="true"] {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+
+/* ─── Mobile-first responsive overrides ──────────────────────────────── */
+
+/* Project modal — tighter on small phones */
+@media (max-width: 480px) {
+  .project-modal {
+    padding: 0.5rem;
+  }
+  .project-modal__dialog {
+    border-radius: 1rem;
+    max-height: 95vh;
+  }
+  .project-modal__media {
+    aspect-ratio: 16 / 7;
+  }
+  .project-modal__body {
+    padding: 1.1rem 1rem 1.75rem;
+  }
+  .project-modal__close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+/* Watermark numbers — reduced on tablet so they don't clip */
+@media (max-width: 768px) {
+  .watermark {
+    font-size: clamp(8rem, 28vw, 16rem);
+  }
+}
+
+/* Prevent any horizontal overflow at all viewport sizes */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
