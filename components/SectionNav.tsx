@@ -15,6 +15,7 @@ export default function SectionNav() {
     { id: "project3", label: "Project 03" },
     { id: "project4", label: "Project 04" },
     { id: "project5", label: "Project 05" },
+    { id: "project6", label: "Project 06" },
     { id: "hackathons", label: "Hackathons" },
     { id: "contact", label: "Contact" },
   ];
@@ -30,6 +31,7 @@ export default function SectionNav() {
       "project3",
       "project4",
       "project5",
+      "project6",
       "hackathons",
       "contact",
     ];

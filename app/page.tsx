@@ -21,7 +21,7 @@ const EMAIL = "tirumalasureshmahimakumar@gmail.com";
 
 type Project = ProjectDetail & {
   align: "left" | "right";
-  section: "project1" | "project2" | "project3" | "project4" | "project5";
+  section: "project1" | "project2" | "project3" | "project4" | "project5" | "project6";
 };
 
 const projects: Project[] = [
@@ -166,6 +166,29 @@ const projects: Project[] = [
     highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "nodedotjs"],
     align: "left",
     section: "project5",
+  },
+  {
+    num: "06",
+    name: "HeatSafe Route",
+    stack: [
+      "React",
+      "TypeScript",
+      "Leaflet",
+      "OpenStreetMap API",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+    ],
+    desc: "Heat-aware pedestrian navigation system that compares shortest, coolest, and balanced routes.",
+    details: "A web application designed for heat safety (DSR for Heat safety). It helps users find the optimal travel routes by comparing the shortest, coolest, and balanced paths for walking and vehicle journeys. Utilizing surface-heat and shade data along with OpenStreetMap integration, the platform provides live heat overlays, shaded-path scoring, and thermal safety indices to ensure a safer travel experience.",
+    url: "https://heatsafe-route.onrender.com/",
+    media: [
+      "/projects/heatsafe-route/1.png",
+      "/projects/heatsafe-route/2.png",
+    ],
+    highlights: ["react", "typescript", "tailwindcss", "nodedotjs"],
+    align: "right",
+    section: "project6",
   },
 ];
 
