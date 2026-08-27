@@ -181,6 +181,7 @@ const projects: Project[] = [
     ],
     desc: "Heat-aware pedestrian navigation system that compares shortest, coolest, and balanced routes.",
     details: "A web application designed for heat safety (DSR for Heat safety). It helps users find the optimal travel routes by comparing the shortest, coolest, and balanced paths for walking and vehicle journeys. Utilizing surface-heat and shade data along with OpenStreetMap integration, the platform provides live heat overlays, shaded-path scoring, and thermal safety indices to ensure a safer travel experience.",
+    github: "https://github.com/Suresh-Tirumala/HeatSafe-Route",
     url: "https://heatsafe-route.onrender.com/",
     media: [
       "/projects/heatsafe-route/1.png",
