@@ -163,9 +163,9 @@ export default function StackCards({
                 {item.body}
               </p>
             </div>
-            {/* Image col: hidden on very small screens, shows beside text on sm+ */}
-            <div className="hidden sm:flex relative min-h-0 justify-end items-stretch">
-              <div className="w-[min(100%,380px)] h-full overflow-hidden rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
+            {/* Image col: stacked below text on mobile, beside text on sm+ */}
+            <div className="flex-1 flex relative min-h-0 justify-center sm:justify-end items-stretch">
+              <div className="w-full sm:w-[min(100%,380px)] h-full overflow-hidden rounded-sm shadow-[0_10px_28px_rgba(0,0,0,0.14)]">
                 {item.image && (
                   <img
                     src={item.image}
