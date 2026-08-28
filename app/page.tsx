@@ -21,7 +21,7 @@ const EMAIL = "tirumalasureshmahimakumar@gmail.com";
 
 type Project = ProjectDetail & {
   align: "left" | "right";
-  section: "project1" | "project2" | "project3" | "project4" | "project5" | "project6";
+  section: "project1" | "project2" | "project3" | "project4" | "project5";
 };
 
 const projects: Project[] = [
@@ -113,35 +113,6 @@ const projects: Project[] = [
   },
   {
     num: "04",
-    name: "PronounceAI",
-    stack: [
-      "Next.js 16",
-      "React 19",
-      "TypeScript",
-      "Tailwind CSS",
-      "FastAPI",
-      "Python",
-      "Whisper",
-      "WhisperX",
-      "Recharts",
-      "Docker",
-    ],
-    desc: "AI English pronunciation platform that analyzes uploaded or recorded speech, scores fluency and clarity, and gives word-level feedback.",
-    details: "Full-stack SaaS for practicing English pronunciation. The Next.js, React, and TypeScript frontend supports browser recording, MP3/WAV/M4A/WEBM uploads, speaking tips, interactive results, charts, transcript review, and downloadable reports. The FastAPI backend processes audio ephemerally, normalizes the file, transcribes with Whisper, aligns words with WhisperX, and calculates pronunciation, fluency, clarity, and confidence scores. It also returns personalized recommendations and practice words so learners know exactly what to improve.",
-    github: "https://github.com/Suresh-Tirumala/ai-pronunciation",
-    url: "https://ai-pronunciation-wcer.vercel.app",
-    media: [
-      "/projects/pronounce-ai/1.png",
-      "/projects/pronounce-ai/2.png",
-      "/projects/pronounce-ai/3.png",
-      "/projects/pronounce-ai/4.png",
-    ],
-    highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "python"],
-    align: "right",
-    section: "project4",
-  },
-  {
-    num: "05",
     name: "GrowEasy (AI CSV Importer)",
     stack: [
       "Next.js 16",
@@ -164,11 +135,11 @@ const projects: Project[] = [
       "/projects/csv-ai/3.png",
     ],
     highlights: ["nextdotjs", "react", "typescript", "tailwindcss", "nodedotjs"],
-    align: "left",
-    section: "project5",
+    align: "right",
+    section: "project4",
   },
   {
-    num: "06",
+    num: "05",
     name: "HeatSafe Route",
     stack: [
       "React",
@@ -191,8 +162,8 @@ const projects: Project[] = [
       "/projects/heatsafe-route/2.png",
     ],
     highlights: ["react", "typescript", "tailwindcss", "python"],
-    align: "right",
-    section: "project6",
+    align: "left",
+    section: "project5",
   },
 ];
 
